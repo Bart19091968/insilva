@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>ITSM Explained</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ECE5D3;
+    --paper: #F4EEDE;
+    --ink: #1A1714;
+    --ink-soft: #2C2722;
+    --muted: #7A7062;
+    --rule: #CFC6B0;
+    --accent: #B0492A;
+    --accent-soft: #C66B45;
+
+    --type-display: 168px;
+    --type-title: 84px;
+    --type-section: 64px;
+    --type-subtitle: 44px;
+    --type-body: 30px;
+    --type-small: 24px;
+    --type-eyebrow: 24px;
+    --type-numeral: 220px;
+
+    --pad-x: 110px;
+    --pad-top: 96px;
+    --pad-bottom: 96px;
+    --gap-title: 56px;
+    --gap-item: 28px;
+  }
+
+  html, body { margin: 0; padding: 0; background: #1a1a1a; }
+
+  deck-stage section {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-weight: 400;
+    overflow: hidden;
+  }
+
+  /* ---------- shared building blocks ---------- */
+  .frame {
+    position: absolute;
+    inset: 0;
+    padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  .topbar {
+    position: absolute;
+    top: 48px;
+    left: var(--pad-x);
+    right: var(--pad-x);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: var(--type-small);
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+  .topbar .mark {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .topbar .dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--accent);
+  }
+  .bottombar {
+    position: absolute;
+    bottom: 44px;
+    left: var(--pad-x);
+    right: var(--pad-x);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: var(--type-small);
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: var(--type-eyebrow);
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .display {
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .display .it {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .body {
+    font-size: var(--type-body);
+    line-height: 1.42;
+    color: var(--ink-soft);
+    max-width: 1100px;
+  }
+  .rule {
+    height: 1px;
+    background: var(--rule);
+    width: 100%;
+  }
+
+  /* ---------- 01 title ---------- */
+  .title-slide .stack {
+    margin-top: auto;
+    display: flex; flex-direction: column; gap: 40px;
+  }
+  .title-slide h1 {
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: var(--type-display);
+    line-height: 0.88;
+    letter-spacing: -0.025em;
+    margin: 0;
+    color: var(--ink);
+  }
+  .title-slide h1 .it { font-style: italic; color: var(--accent); }
+  .title-slide .sub {
+    font-size: 36px;
+    color: var(--muted);
+    max-width: 880px;
+    line-height: 1.35;
+  }
+  .title-meta {
+    display: flex; gap: 64px; align-items: flex-end;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: var(--type-small);
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .title-meta div span { display: block; color: var(--ink); margin-top: 6px; font-weight: 500; }
+
+  /* ---------- definition slide ---------- */
+  .def .body-xl {
+    font-family: "Instrument Serif", serif;
+    font-size: 76px;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    max-width: 1500px;
+  }
+  .def .body-xl b {
+    font-weight: 400;
+    background: linear-gradient(180deg, transparent 62%, rgba(176,73,42,0.22) 62%);
+    padding: 0 4px;
+  }
+  .def .verbs {
+    display: flex; flex-wrap: wrap; gap: 16px 24px;
+    margin-top: 48px;
+  }
+  .def .verb {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 24px;
+    padding: 10px 18px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+  }
+
+  /* ---------- examples slide ---------- */
+  .ex .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-top: var(--gap-title);
+  }
+  .ex .card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 56px 52px;
+    display: flex; flex-direction: column; gap: 24px;
+    min-height: 420px;
+  }
+  .ex .card .ix {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 24px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+  }
+  .ex .card .q {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: 56px;
+    line-height: 1.06;
+    color: var(--ink);
+  }
+  .ex .card .a {
+    margin-top: auto;
+    font-size: 26px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .ex .card .a strong { color: var(--ink); font-weight: 500; }
+
+  /* ---------- section divider ---------- */
+  .section-slide {
+    background: var(--ink) !important;
+    color: var(--paper);
+  }
+  .section-slide .topbar,
+  .section-slide .bottombar { color: rgba(244,238,222,0.55); }
+  .section-slide .topbar .dot { background: var(--accent-soft); }
+  .section-slide .eyebrow { color: var(--accent-soft); }
+  .section-slide .num {
+    font-family: "Instrument Serif", serif;
+    font-size: 360px;
+    line-height: 0.85;
+    color: var(--accent-soft);
+    font-style: italic;
+  }
+  .section-slide h2 {
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: 132px;
+    line-height: 0.92;
+    margin: 0;
+    color: var(--paper);
+    letter-spacing: -0.02em;
+  }
+  .section-slide .sub {
+    font-size: 30px;
+    color: rgba(244,238,222,0.7);
+    max-width: 900px;
+    line-height: 1.4;
+    margin-top: 28px;
+  }
+  .section-slide .layout {
+    display: grid;
+    grid-template-columns: 480px 1fr;
+    gap: 80px;
+    align-items: end;
+    height: 100%;
+  }
+
+  /* ---------- process slide ---------- */
+  .proc .layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 80px;
+    margin-top: 8px;
+    flex: 1;
+  }
+  .proc .num {
+    font-family: "Instrument Serif", serif;
+    font-size: var(--type-numeral);
+    line-height: 0.85;
+    color: var(--accent);
+    font-style: italic;
+  }
+  .proc h2 {
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: var(--type-title);
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+    margin: 0 0 36px 0;
+    color: var(--ink);
+  }
+  .proc .lede {
+    font-size: 34px;
+    line-height: 1.32;
+    color: var(--ink-soft);
+    max-width: 1100px;
+    margin-bottom: 56px;
+  }
+  .proc .example {
+    border-top: 1px solid var(--rule);
+    padding-top: 28px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .proc .example .label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 24px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding-top: 8px;
+  }
+  .proc .example .text {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: 38px;
+    line-height: 1.25;
+    color: var(--ink);
+    max-width: 1000px;
+  }
+  .proc .pairs {
+    display: flex; gap: 28px; margin-top: 24px;
+  }
+  .proc .pair {
+    padding: 10px 18px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 24px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* ---------- ITIL slide ---------- */
+  .itil .layout {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 100px;
+    align-items: start;
+    margin-top: var(--gap-title);
+    flex: 1;
+  }
+  .itil h2 {
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: var(--type-title);
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+    margin: 0 0 36px 0;
+  }
+  .itil .acronym {
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .itil .acronym .row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 32px;
+    align-items: baseline;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .itil .acronym .letter {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: 92px;
+    line-height: 0.9;
+    color: var(--accent);
+  }
+  .itil .acronym .word {
+    font-size: 36px;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+  .itil .body { margin-top: 12px; }
+  .itil .kicker {
+    margin-top: 36px;
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: 38px;
+    line-height: 1.25;
+    color: var(--ink);
+    max-width: 700px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ---------- benefits grid ---------- */
+  .ben .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: var(--gap-title);
+    flex: 1;
+  }
+  .ben .card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 40px 36px;
+    display: flex; flex-direction: column;
+    gap: 18px;
+  }
+  .ben .card .ix {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 24px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+  }
+  .ben .card h3 {
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 1.0;
+    letter-spacing: -0.015em;
+    margin: 0;
+    color: var(--ink);
+  }
+  .ben .card p {
+    margin: 0;
+    font-size: 24px;
+    line-height: 1.42;
+    color: var(--muted);
+  }
+
+  /* ---------- recap ---------- */
+  .recap .layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: var(--gap-title);
+    flex: 1;
+  }
+  .recap h3 {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 24px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 24px 0;
+    font-weight: 500;
+  }
+  .recap .item {
+    border-top: 1px solid var(--rule);
+    padding: 32px 0;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 24px;
+    align-items: baseline;
+  }
+  .recap .item:last-child { border-bottom: 1px solid var(--rule); }
+  .recap .item .n {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 24px;
+    color: var(--muted);
+  }
+  .recap .item .t {
+    font-family: "Instrument Serif", serif;
+    font-size: 36px;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+  .recap .item .t em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  /* ---------- closing ---------- */
+  .end-slide {
+    background: var(--ink) !important;
+    color: var(--paper);
+  }
+  .end-slide .topbar, .end-slide .bottombar { color: rgba(244,238,222,0.55); }
+  .end-slide .topbar .dot { background: var(--accent-soft); }
+  .end-slide .stack {
+    margin: auto 0;
+    display: flex; flex-direction: column; gap: 40px;
+  }
+  .end-slide h2 {
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: 200px;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    margin: 0;
+    color: var(--paper);
+  }
+  .end-slide h2 .it { font-style: italic; color: var(--accent-soft); }
+  .end-slide .sub {
+    font-size: 32px;
+    color: rgba(244,238,222,0.7);
+    max-width: 900px;
+    line-height: 1.4;
+  }
+</style>
+
+<script type="application/json" id="speaker-notes">
+[
+  "Hi everyone, welcome. In this short lecture I'm going to explain what IT Service Management is, and how you and your organization can benefit from it. We'll cover what ITSM actually means, walk through the four most common processes you'll see in any IT shop, take a quick look at the ITIL framework, and finish with the real-world benefits. Should take us about five minutes.",
+  "So let's start with the basics. IT Service Management — usually shortened to ITSM — refers to the processes an organization follows to design, plan, deliver, operate and control the IT services it offers to its end users. Those five verbs at the bottom are the heart of it: every ITSM process fits somewhere inside that lifecycle. It's the discipline of running IT like a service, not a series of one-off favors.",
+  "And this isn't abstract. If you've ever requested a new laptop at work, or reported that the internet was down in your office — congratulations, you've already used ITSM. These are the everyday services that an IT organization is set up to manage and deliver. Keep these two examples in mind, because they actually map directly onto two of the processes we're about to look at.",
+  "There are four core processes that show up in pretty much every ITSM practice: incident management, service request management, problem management, and change management. We'll take each one in turn. They sound similar at first, but each handles a very different kind of work — and that distinction is important, because mixing them up is one of the most common mistakes IT teams make.",
+  "First up: incident management. This is the process for dealing with IT issues that are actively affecting a service — something is broken and people can't work. The classic example is the Wi-Fi being down in an office building. The goal of incident management is simple: get the service back up and running, as quickly as possible, with as little disruption as possible.",
+  "Service request management is what handles routine asks from end users. A new laptop, a piece of software, access to a network drive — these aren't outages, nothing is broken, the user just needs something. Treating these as their own category, with their own workflow, is what stops them from clogging up the same queue your incident responders are using.",
+  "Problem management is the detective work. It runs alongside incident management and asks: why did this happen, and how do we stop it from happening again? An incident gets the service back; problem management does the root-cause analysis so the same incident doesn't keep recurring. One is firefighting; the other is fire prevention.",
+  "Change management is how an IT team plans, tracks and rolls out changes across the organization — while assessing the risks before anything ships. A good example is upgrading a SQL database to a new version. If that upgrade goes wrong, one or more services downstream could break. Change management is the discipline that says: let's understand the blast radius before we touch anything.",
+  "You'll often hear ITSM mentioned in the same breath as ITIL — the IT Infrastructure Library. ITIL is a set of best practices for doing ITSM well, and its main focus is aligning IT services with what the business actually needs. So while ITSM is the practice, ITIL is the playbook — guidance on how to plan, deliver and manage services so they're efficient, effective, and actually moving the business forward.",
+  "So that's the what and the how. Let's spend a moment on the why — what an organization actually gets out of taking ITSM seriously. There are six benefits I want to highlight, and they tend to reinforce each other.",
+  "Structured processes reduce errors and downtime. Service quality goes up, which means SLAs are met and issues are caught earlier. Cost efficiency follows — fewer ad-hoc fixes, less duplicated effort. End users notice; their trust in IT grows. Frameworks like ITIL build in continuous improvement, so the practice keeps refining itself. And the whole thing stays anchored to business goals, so IT is investing in what actually matters.",
+  "Quick recap before we close. ITSM is the set of processes for designing, delivering and controlling IT services. The four core processes are incident, service request, problem, and change management. ITIL is the framework of best practices that helps you do all of this well. And the payoff is consistency, quality, cost savings, happier users, continuous improvement, and tighter alignment with business goals.",
+  "That's it for this one. Thank you very much for watching — I hope this gave you a clear picture of what ITSM is and why it matters. See you in the next video."
+]
+</script>
+</head>
+<body>
+
+<script src="deck-stage.js"></script>
+
+<deck-stage width="1920" height="1080">
+
+  <!-- 01 ─────────────────── TITLE ─────────────────── -->
+  <section data-label="01 Title" class="title-slide">
+    <div class="frame">
+      <div class="topbar">
+        <div class="mark"><span class="dot"></span><span>ITSM / A SHORT LECTURE</span></div>
+        <div>2026 · 13 SLIDES · ~5 MIN</div>
+      </div>
+
+      <div class="stack">
+        <div class="eyebrow">Information Technology Service Management</div>
+        <h1>ITSM,<br/><span class="it">explained.</span></h1>
+        <div class="sub">How modern organizations design, plan, deliver, operate and control the IT services their people depend on every day.</div></div>
+      </div>
+
+      <div class="bottombar"><div>EST. 4 MIN 27 SEC</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 ─────────────────── DEFINITION ─────────────────── -->
+  <section data-label="02 What ITSM means" class="def">
+    <div class="frame">
+      <div class="topbar">
+        <div class="mark"><span class="dot"></span><span>01 · DEFINITION</span></div>
+        <div>02 / 13</div>
+      </div>
+
+      <div style="margin-top: 60px;">
+        <div class="eyebrow" style="margin-bottom: 36px;">What ITSM means</div>
+        <div class="body-xl">
+          ITSM is the set of processes an organization follows to
+          <b>design</b>, <b>plan</b>, <b>deliver</b>, <b>operate</b> and <b>control</b>
+          the IT services it offers to its end&#8209;users.
+        </div>
+        <div class="verbs">
+          <span class="verb">design →</span>
+          <span class="verb">plan →</span>
+          <span class="verb">deliver →</span>
+          <span class="verb">operate →</span>
+          <span class="verb">control</span>
+        </div>
+      </div>
+
+      <div class="bottombar">
+        <div>ITSM = IT Service Management</div></div>
+    </div>
+  </section>
+
+  <!-- 03 ─────────────────── EVERYDAY EXAMPLES ─────────────────── -->
+  <section data-label="03 Examples in everyday work" class="ex">
+    <div class="frame">
+      <div class="topbar">
+        <div class="mark"><span class="dot"></span><span>02 · EVERYDAY</span></div>
+        <div>03 / 13</div>
+      </div>
+
+      <div style="margin-top: 40px;">
+        <div class="eyebrow" style="margin-bottom: 24px;">Examples in everyday work</div>
+        <h2 class="display" style="font-size: 96px; margin: 0 0 12px 0;">You've probably <span class="it">already used it.</span></h2>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="ix">EX. 01</div>
+          <div class="q">"I need a new laptop for the new hire starting Monday."</div>
+          <div class="a"><strong>That's a service request.</strong> Something a user needs — hardware, software, access — fulfilled through a defined process.</div>
+        </div>
+        <div class="card">
+          <div class="ix">EX. 02</div>
+          <div class="q">"The Wi&#8209;Fi is down on the third floor."</div>
+          <div class="a"><strong>That's an incident.</strong> A service that should be working isn't, and someone needs to get it back up — fast.</div>
+        </div>
+      </div>
+
+      <div class="bottombar">
+        <div>Everyday IT, formalized</div></div>
+    </div>
+  </section>
+
+  <!-- 04 ─────────────────── SECTION I: PROCESSES ─────────────────── -->
+  <section data-label="04 Section · Four core processes" class="section-slide">
+    <div class="frame">
+      <div class="topbar">
+        <div class="mark"><span class="dot"></span><span>PART ONE</span></div>
+        <div>04 / 13</div>
+      </div>
+
+      <div class="layout">
+        <div class="num">I.</div>
+        <div>
+          <div class="eyebrow" style="margin-bottom: 28px;">The four core processes</div>
+          <h2>Incident.<br/>Request.<br/>Problem.<br/>Change.</h2>
+          <div class="sub">Four distinct kinds of work, four distinct workflows. Most ITSM practices are built around getting each one right — and not confusing them with each other.</div>
+        </div>
+      </div>
+
+      <div class="bottombar"><div>4 PROCESSES · 4 SLIDES</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 ─────────────────── INCIDENT MGMT ─────────────────── -->
+  <section data-label="05 Incident management" class="proc">
+    <div class="frame">
+      <div class="topbar">
+        <div class="mark"><span class="dot"></span><span>PROCESS 01 / 04</span></div>
+        <div>05 / 13</div>
+      </div>
+
+      <div class="eyebrow" style="margin-top: 40px;">Process · 01</div>
+
+      <div class="layout">
+        <div class="num">01</div>
+        <div>
+          <h2>Incident<br/>management.</h2>
+          <div class="lede">Handles IT issues that are actively affecting a service. Its job is to keep things <em style="color:var(--accent);font-style:italic;">up, running, and moving</em> — restoring service as quickly as possible.</div>
+          <div class="example">
+            <div class="label">Example →</div>
+            <div class="text">"The Wi&#8209;Fi is down across the office building."</div>
+          </div>
+          <div class="pairs">
+            <div class="pair">GOAL · RESTORE SERVICE</div>
+            <div class="pair">PRIORITY · SPEED</div>
+            <div class="pair">PARTNER · PROBLEM MGMT</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottombar">
+        <div>Firefighting</div></div>
+    </div>
+  </section>
+
+  <!-- 06 ─────────────────── SERVICE REQUEST MGMT ─────────────────── -->
+  <section data-label="06 Service request management" class="proc">
+    <div class="frame">
+      <div class="topbar">
+        <div class="mark"><span class="dot"></span><span>PROCESS 02 / 04</span></div>
+        <div>06 / 13</div>
+      </div>
+
+      <div class="eyebrow" style="margin-top: 40px;">Process · 02</div>
+
+      <div class="layout">
+        <div class="num">02</div>
+        <div>
+          <h2>Service request<br/>management.</h2>
+          <div class="lede">Fulfills the everyday asks from end users — nothing is broken, someone just <em style="color:var(--accent);font-style:italic;">needs something</em>. A different queue, a different workflow.</div>
+          <div class="example">
+            <div class="label">Examples →</div>
+            <div class="text">Hardware. Software. Access to a network drive.</div>
+          </div>
+          <div class="pairs">
+            <div class="pair">GOAL · FULFILL ASK</div>
+            <div class="pair">PRIORITY · CONSISTENCY</div>
+            <div class="pair">VOLUME · HIGH</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottombar">
+        <div>The IT storefront</div></div>
+    </div>
+  </section>
+
+  <!-- 07 ─────────────────── PROBLEM MGMT ─────────────────── -->
+  <section data-label="07 Problem management" class="proc">
+    <div class="frame">
+      <div class="topbar">
+        <div class="mark"><span class="dot"></span><span>PROCESS 03 / 04</span></div>
+        <div>07 / 13</div>
+      </div>
+
+      <div class="eyebrow" style="margin-top: 40px;">Process · 03</div>
+
+      <div class="layout">
+        <div class="num">03</div>
+        <div>
+          <h2>Problem<br/>management.</h2>
+          <div class="lede">The detective work. Runs alongside incident management and digs for the <em style="color:var(--accent);font-style:italic;">root cause</em> — so the same incident doesn't keep coming back.</div>
+          <div class="example">
+            <div class="label">Example →</div>
+            <div class="text">"Why has the Wi&#8209;Fi gone down three times this month?"</div>
+          </div>
+          <div class="pairs">
+            <div class="pair">GOAL · ROOT-CAUSE</div>
+            <div class="pair">HORIZON · LONG-TERM</div>
+            <div class="pair">PARTNER · INCIDENT MGMT</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottombar">
+        <div>Fire prevention, not firefighting</div></div>
+    </div>
+  </section>
+
+  <!-- 08 ─────────────────── CHANGE MGMT ─────────────────── -->
+  <section data-label="08 Change management" class="proc">
+    <div class="frame">
+      <div class="topbar">
+        <div class="mark"><span class="dot"></span><span>PROCESS 04 / 04</span></div>
+        <div>08 / 13</div>
+      </div>
+
+      <div class="eyebrow" style="margin-top: 40px;">Process · 04</div>
+
+      <div class="layout">
+        <div class="num">04</div>
+        <div>
+          <h2>Change<br/>management.</h2>
+          <div class="lede">Plans, tracks and rolls out IT changes across the organization — while <em style="color:var(--accent);font-style:italic;">assessing risk</em> before anything ships.</div>
+          <div class="example">
+            <div class="label">Example →</div>
+            <div class="text">Upgrading a SQL database to the latest version, without breaking the services that depend on it.</div>
+          </div>
+          <div class="pairs">
+            <div class="pair">GOAL · SAFE ROLLOUT</div>
+            <div class="pair">PRIORITY · RISK</div>
+            <div class="pair">UNIT · THE CHANGE</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottombar">
+        <div>Understand the blast radius first</div></div>
+    </div>
+  </section>
+
+  <!-- 09 ─────────────────── ITIL ─────────────────── -->
+  <section data-label="09 ITIL · a framework for best practices" class="itil">
+    <div class="frame">
+      <div class="topbar">
+        <div class="mark"><span class="dot"></span><span>FRAMEWORK</span></div>
+        <div>09 / 13</div>
+      </div>
+
+      <div class="eyebrow" style="margin-top: 40px;">A framework for best practices</div>
+
+      <div class="layout">
+        <div>
+          <h2>ITIL.</h2>
+          <div class="acronym">
+            <div class="row"><div class="letter">I</div><div class="word">Information</div></div>
+            <div class="row"><div class="letter">T</div><div class="word">Technology</div></div>
+            <div class="row"><div class="letter">I</div><div class="word">Infrastructure</div></div>
+            <div class="row"><div class="letter">L</div><div class="word">Library</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="body">
+            ITIL is a set of <strong style="color:var(--ink);font-weight:500;">best practices for ITSM</strong>, focused on aligning IT services with business needs. It offers guidance on planning, delivering and managing services so they're efficient, effective and meet what the organization actually needs.
+          </div>
+          <div class="kicker">
+            If ITSM is <span style="color:var(--accent);">the practice</span>, ITIL is <span style="color:var(--accent);">the playbook.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottombar">
+        <div>Best practices, not strict rules</div></div>
+    </div>
+  </section>
+
+  <!-- 10 ─────────────────── SECTION II: BENEFITS ─────────────────── -->
+  <section data-label="10 Section · Why ITSM matters" class="section-slide">
+    <div class="frame">
+      <div class="topbar">
+        <div class="mark"><span class="dot"></span><span>PART TWO</span></div>
+        <div>10 / 13</div>
+      </div>
+
+      <div class="layout">
+        <div class="num">II.</div>
+        <div>
+          <div class="eyebrow" style="margin-bottom: 28px;">The payoff</div>
+          <h2>Why ITSM<br/><span style="font-style:italic;color:var(--accent-soft);">matters.</span></h2>
+          <div class="sub">Six benefits that compound on each other — from cleaner workflows to happier end users to IT investments that actually move the business forward.</div>
+        </div>
+      </div>
+
+      <div class="bottombar"><div>6 BENEFITS · 1 SLIDE</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 ─────────────────── BENEFITS GRID ─────────────────── -->
+  <section data-label="11 Six benefits" class="ben">
+    <div class="frame">
+      <div class="topbar">
+        <div class="mark"><span class="dot"></span><span>BENEFITS</span></div>
+        <div>11 / 13</div>
+      </div>
+
+      <div style="margin-top: 40px;">
+        <div class="eyebrow" style="margin-bottom: 20px;">Six benefits of ITSM</div>
+        <h2 class="display" style="font-size: 88px; margin: 0;">Each one reinforces <span class="it">the next.</span></h2>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="ix">BENEFIT 01</div>
+          <h3>Consistent, structured processes.</h3>
+          <p>Defined workflows reduce errors, cut downtime, and lift overall efficiency — from incident resolution to change rollout.</p>
+        </div>
+        <div class="card">
+          <div class="ix">BENEFIT 02</div>
+          <h3>Higher service quality.</h3>
+          <p>Services are delivered reliably and consistently. SLAs are met, issues caught proactively, incidents resolved faster.</p>
+        </div>
+        <div class="card">
+          <div class="ix">BENEFIT 03</div>
+          <h3>Cost efficiency.</h3>
+          <p>Standardized procedures cut the need for ad-hoc fixes and repeated effort — less waste, less unnecessary spend.</p>
+        </div>
+        <div class="card">
+          <div class="ix">BENEFIT 04</div>
+          <h3>Customer satisfaction.</h3>
+          <p>Fewer disruptions, better service, more trust in the IT department. A positive experience across the organization.</p>
+        </div>
+        <div class="card">
+          <div class="ix">BENEFIT 05</div>
+          <h3>Continuous improvement.</h3>
+          <p>Frameworks like ITIL bake in regular review and refinement — the practice keeps getting sharper over time.</p>
+        </div>
+        <div class="card">
+          <div class="ix">BENEFIT 06</div>
+          <h3>Aligned with business goals.</h3>
+          <p>IT services support what the business is actually trying to do — and the highest-value initiatives get prioritized.</p>
+        </div>
+      </div>
+
+      <div class="bottombar">
+        <div>Compounding effects</div></div>
+    </div>
+  </section>
+
+  <!-- 12 ─────────────────── RECAP ─────────────────── -->
+  <section data-label="12 Recap" class="recap">
+    <div class="frame">
+      <div class="topbar">
+        <div class="mark"><span class="dot"></span><span>RECAP</span></div>
+        <div>12 / 13</div>
+      </div>
+
+      <div style="margin-top: 40px;">
+        <div class="eyebrow" style="margin-bottom: 20px;">In summary</div>
+        <h2 class="display" style="font-size: 96px; margin: 0;">Four things to <span class="it">take with you.</span></h2>
+      </div>
+
+      <div class="layout">
+        <div>
+          <h3>What &amp; how</h3>
+          <div class="item"><div class="n">01</div><div class="t"><em>ITSM</em> is the set of processes for designing, planning, delivering, operating and controlling IT services.</div></div>
+          <div class="item"><div class="n">02</div><div class="t">The four core processes are <em>incident, service request, problem,</em> and <em>change</em> management.</div></div>
+        </div>
+        <div>
+          <h3>Framework &amp; payoff</h3>
+          <div class="item"><div class="n">03</div><div class="t"><em>ITIL</em> is the framework of best practices for aligning IT services with business needs.</div></div>
+          <div class="item"><div class="n">04</div><div class="t">The benefits compound: <em>consistency, quality, cost, satisfaction, improvement, alignment.</em></div></div>
+        </div>
+      </div>
+
+      <div class="bottombar">
+        <div>End of lecture</div></div>
+    </div>
+  </section>
+
+  <!-- 13 ─────────────────── THANK YOU ─────────────────── -->
+  <section data-label="13 Thank you" class="end-slide">
+    <div class="frame">
+      <div class="topbar">
+        <div class="mark"><span class="dot"></span><span>END</span></div>
+        <div>13 / 13</div>
+      </div>
+
+      <div class="stack">
+        <div class="eyebrow" style="color: var(--accent-soft);">Closing</div>
+        <h2>Thank you<br/><span class="it">for watching.</span></h2>
+        <div class="sub">If this was useful, see you in the next lecture.</div>
+      </div>
+
+      <div class="bottombar">
+        <div>ITSM · A SHORT LECTURE</div>
+        <div>FIN.</div>
+      </div>
+    </div>
+  </section>
+
+</deck-stage>
+
+</body>
+</html>

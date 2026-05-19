@@ -1,0 +1,1789 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>SIAM Foundation · In Silva Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+<script type="application/json" id="speaker-notes">
+[
+  "Welcome. This is a Foundation-level walk through Service Integration and Management — SIAM for short. Over the next twelve minutes or so, we'll cover what SIAM is, the three-layer ecosystem at its heart, the four ways organizations choose to structure it, the roadmap for implementing it, and the people, practices and drivers that make it work. Whether you sit on the customer side, in a service provider, or somewhere in between, the goal is for you to leave with a clear mental model.",
+  "Before we get into the practical questions of structures and roadmaps, we'll spend a few minutes on the foundations. What SIAM actually is. Who sits in the three-layer ecosystem. And how the whole thing is governed. Eleven slides on the concepts, then we move into the choices.",
+  "Let's start with the problem SIAM is built to solve. Hardly any organization today gets its IT — or really any of its services — from a single supplier. You've got internal teams, external providers, cloud platforms, specialist vendors, all delivering pieces of what the end user experiences as one service. When their objectives, contracts and targets don't line up, that complexity becomes the customer's problem. SIAM exists to manage that complexity.",
+  "So here's the definition. SIAM is a management methodology used to create value in an ecosystem where multiple service providers — internal, external, or both — deliver services together. Its key invention is the idea of a service integrator: a capability accountable for end-to-end delivery. The integrator sits between the customer and the providers, providing governance, management, integration, assurance and coordination across the whole ecosystem.",
+  "One important nuance before we go deeper. The SIAM Foundation guidance is very explicit that SIAM is not prescriptive. It's a framework of guidelines, best practices, concepts and models — designed to be applied flexibly to your specific multi-sourced ecosystem. There's no single right way to do SIAM. What you'll see in the next few slides are the building blocks; how you assemble them depends on your organization.",
+  "The SIAM ecosystem has three layers. At the top, the customer organization — the client commissioning the whole thing, including its retained capabilities like procurement, enterprise architecture, and corporate governance. In the middle, the service integrator — the engine room of SIAM. At the bottom, the service providers — one or many, internal or external, each delivering a piece of the end-to-end service. Each layer has a defined role; each must be capable and mature enough to play it.",
+  "Figure 1 in the SIAM Foundation guide breaks down the focus of each layer. The customer organization concerns itself with strategic direction, business outcomes, demand and governance. The service integrator handles end-to-end governance, integration, assurance and coordination. The service providers focus on day-to-day service delivery, operations, and the technology that makes it possible. Three layers, three distinct kinds of work — and that division is what allows the ecosystem to function without anyone stepping on each other's toes.",
+  "Let's go through each layer in detail, starting at the top. The customer organization is the client making the transition to SIAM — the entity commissioning the whole ecosystem. Inside it you'll find the usual business units: HR, finance, sales, an internal IT function, and so on. Crucially, the customer organization also has its own customers — the end users of the products and services it produces. It owns the contracts with all external providers, owns the relationship with the integrator if it's external, and provides corporate governance over any internal teams operating as service providers.",
+  "Inside the customer organization sit the retained capabilities — sometimes called the 'intelligent client function'. These are the strategic, architectural and governance functions that stay under the customer's direct control: enterprise architecture, policy and standards, procurement, contract management, demand management, financial management, service portfolio management, corporate risk, and governance of the service integrator itself. Why retain these? Because they're business-differentiating, or because legislation requires it, or because you need the in-house skills, knowledge and authority to govern your providers credibly. Without strong retained capabilities, even a great external integrator will struggle.",
+  "Let's zoom in on that middle layer, because it's where SIAM lives or dies. The service integrator is a logical entity — it might be one team or several, internal or external — that the customer holds accountable for end-to-end delivery. Its job has five sides: governance, management, integration, assurance, and coordination across every provider in the ecosystem. Think of it as the conductor of the orchestra. Without one, you have musicians; with one, you have music.",
+  "Layer three is the service providers. There are usually several. Each one is responsible for the delivery of one or more services — or service elements — and for managing the products, technology and processes behind them. Internal or external, large or small, generalist or specialist — what they have in common is that they're producing the work that flows up through the integrator to the customer organization. The role of SIAM is to make sure their individual contributions add up to a coherent end-to-end experience.",
+  "Figure 2 extends the picture. It's the same three layers, but now you can see the end consumers — the people who actually use the services the customer organization produces. Services flow upward: providers produce them, the integrator coordinates and assures them, the customer organization receives and owns them, and the end consumers ultimately use them. This view matters because it makes clear who SIAM is really serving. The integrator isn't accountable to itself, or even to the customer organization in isolation — it's accountable for an outcome that reaches all the way to those consumers at the top of the diagram.",
+  "SIAM governance operates at three levels, and you'll see this pattern echoed in the boards, forums and working groups we set up. Strategic — long-term direction, executive sponsorship, alignment with business goals. Tactical — designing how processes, tools and data flow across providers. Operational — the day-to-day delivery, incidents, changes, performance. Each level has its own cadence, its own decision rights, and its own audience.",
+  "Now we get to a practical question. The customer commissions the ecosystem — but who actually plays the service integrator role? There are four canonical structures, and the choice shapes everything that follows: cost, control, agility, and the kind of risks you'll face. Let's walk through each.",
+  "Structure one: the customer organization plays service integrator itself. This is the right choice when you have the capability in-house, when you want maximum control, and when the work is sensitive enough that you don't want a third party in the middle. The upside is independence and direct accountability. The downside is that you have to build and maintain the integrator capability — and your internal providers may not always accept the authority of your internal integrator.",
+  "Structure two: an external organization is appointed to be the service integrator. This works when the customer doesn't have — and doesn't want to build — the integration capability internally. The advantage is buying in mature expertise quickly. The risk is that the external integrator has no real authority over the service providers without explicit empowerment from the customer; if you don't back them, they become a paper tiger.",
+  "Structure three: one of your service providers — usually the biggest — takes on the integrator role as well. This is often a transitional shape. The advantage is simplicity: one contract, one prime. The disadvantage is the obvious conflict of interest. The lead supplier is being asked to objectively integrate and assure work it is also delivering. That bias is real and has to be actively managed.",
+  "Structure four: a hybrid. The customer collaborates with one or more external organizations to share the integrator role between them. This is the right answer when no single party — internal or external — has every capability needed. It's flexible and powerful, but it requires the most thought about boundaries: who decides what, who escalates to whom, who is accountable for what end-to-end.",
+  "So that's what SIAM is and how you can structure it. The other half of the picture is how you get there. The SIAM Foundation describes a four-stage roadmap. It is described as an example plan — not a rigid sequence — but most successful adoptions follow this shape.",
+  "Discovery & Strategy — work out why you're doing this and what good looks like. Plan & Build — design the model and stand it up. Implement — transition from the old world to the new. Run & Improve — operate the ecosystem and keep refining it. The work compounds: the better your discovery, the smoother your implement; the better your implement, the more value you get from run and improve.",
+  "Stage one — Discovery and Strategy. The objective is to understand where you are, decide whether SIAM is the right answer, and if so, define the strategy and outline business case. You'll establish the project, map your existing services and sourcing, assess your maturity, scan the marketplace, and produce a high-level SIAM model. The key deliverable is a clear-eyed view of whether SIAM is going to deliver enough value to justify the cost and disruption of getting there.",
+  "Stage two — Plan and Build. Now you turn the outline into something you can implement. You design the detailed SIAM model, approve the full business case, kick off organizational change management, and appoint the players: the service integrator first, then the service providers, along with contracts that make all of this real.",
+  "Stage three — Implement. This is where you make the transition from the as-is to the to-be. The hardest part isn't the new model — it's bringing the existing services across without breaking them. Protect what's already running. Manage the cultural shift. Stand up the boards and forums. By the end of this stage the new SIAM model is in place and operating.",
+  "Stage four — Run and Improve. SIAM is now business as usual. The work shifts from project mode to continuous management: running the governance bodies, measuring end-to-end performance, identifying improvements, and adapting the ecosystem as the business and the technology landscape change. This stage never really ends — and that's the point.",
+  "Underneath all of this sits a layer of roles and structural elements. SIAM defines roles at every layer — service owners, process owners, service managers, integration managers, and so on. And it organizes the work through three kinds of structural element: boards for governance decisions, forums for collaboration on a topic, and working groups for time-boxed problem solving. Each runs at one of those three governance levels we saw earlier — strategic, tactical, operational.",
+  "SIAM also defines four areas of practice, each with its own recommendations. People practices — managing cross-functional teams and collaboration. Process practices — integrating processes across providers. Measurement practices — reporting on end-to-end services rather than per-provider SLAs. Technology practices — the tooling strategy that makes data flow across the ecosystem. None of these is unique to SIAM. What is unique is integrating them across multiple providers.",
+  "Why do organizations actually adopt SIAM? The Foundation guidance groups the drivers into five categories. Service satisfaction — fixing the gap between green dashboards and unhappy customers. Service and sourcing landscape — coping with the reality of multi-sourcing and shadow IT. Operational efficiencies — through standardization and consolidation. External drivers — corporate governance and regulatory pressure. Commercial drivers — making the contracts and the integration economics work.",
+  "And the payoff. Four benefit groups. Improved service quality — services that are more reliable end-to-end. Optimized costs and increased value — through better integration, not just cheaper providers. Improved governance and control — clearer accountability across the ecosystem. Improved flexibility and pace — the ability to swap, scale or evolve providers without breaking the whole.",
+  "A word on culture, because this is where SIAM transformations most often fail. Effective SIAM requires control to be balanced with trust, openness, and collaboration. Organizations that have run on command-and-control will find this hard. The transition isn't a technology project — it's a behavioral one. Plan for it, invest in it, and don't pretend a new operating model will fix old habits on its own.",
+  "Finally, the honest list. SIAM is hard. Building the business case is hard. Cultural change is hard. Commercial structures are hard to get right. Measuring end-to-end success across multiple providers is hard. None of these are reasons not to do SIAM — they are reasons to do it deliberately, with eyes open, and with a roadmap that gives each one room.",
+  "Let's recap. SIAM is a framework for creating value in a multi-sourced ecosystem. Its key concept is the service integrator. There are four structures you can choose from, a four-stage roadmap to get there, and people, process, measurement and technology practices that make it work day-to-day. The drivers are real, the benefits are real, and the cultural shift is the hardest part of the whole thing.",
+  "Thank you for spending this time with me. There is a lot more depth in the full SIAM Foundation body of knowledge — this was the introductory pass. If this gave you a clearer mental model of what SIAM is and how it gets built, the lecture did its job. See you in the next one."
+]
+</script>
+
+<style>
+  :root {
+    --green:        #7AAB3A;
+    --green-deep:   #4F7124;
+    --green-soft:   #C5D8A0;
+    --green-mist:   #E6EED4;
+    --charcoal:     #3D3D3D;
+    --charcoal-2:   #6B6B6B;
+    --paper:        #F4F2EC;
+    --paper-deep:   #E8E5DD;
+    --white:        #FFFFFF;
+    --red:          #B73E2E;
+
+    --sans: 'Lato', system-ui, sans-serif;
+    --serif: 'Lora', Georgia, serif;
+
+    --pad-x: 110px;
+    --pad-top: 110px;
+    --pad-bottom: 96px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #1a1a1a; font-family: var(--sans); }
+
+  deck-stage section {
+    background: var(--paper);
+    color: var(--charcoal);
+    font-family: var(--sans);
+    overflow: hidden;
+    position: relative;
+  }
+  h1, h2, h3, h4, p, ul { margin: 0; padding: 0; }
+  ul { list-style: none; }
+
+  /* ── Slide chrome ─────────────────────────────────── */
+  .frame {
+    position: absolute; inset: 0;
+    padding: var(--pad-top) var(--pad-x) var(--pad-bottom);
+    display: flex; flex-direction: column;
+  }
+  .frame--dark { background: var(--charcoal); color: var(--paper); }
+  .frame--green { background: var(--green-deep); color: var(--paper); }
+  .frame--mist { background: var(--green-mist); }
+  .frame--soft { background: var(--green-soft); }
+
+  .corner-label {
+    position: absolute;
+    top: 56px; left: var(--pad-x);
+    font-size: 24px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--charcoal-2);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .corner-num {
+    position: absolute;
+    top: 56px; right: var(--pad-x);
+    font-size: 24px;
+    letter-spacing: 0.18em;
+    color: var(--charcoal-2);
+    font-weight: 700;
+    font-feature-settings: "tnum";
+    white-space: nowrap;
+  }
+  .frame--dark .corner-label, .frame--green .corner-label,
+  .frame--dark .corner-num, .frame--green .corner-num { color: var(--green-soft); }
+
+  .footer-mark {
+    position: absolute;
+    bottom: 48px; left: var(--pad-x);
+    display: flex; align-items: center; gap: 14px;
+    font-size: 24px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--charcoal-2);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .footer-mark svg { width: 28px; height: 28px; color: var(--charcoal); }
+  .frame--dark .footer-mark, .frame--green .footer-mark { color: var(--green-soft); }
+  .frame--dark .footer-mark svg, .frame--green .footer-mark svg { color: var(--paper); }
+  .footer-end {
+    position: absolute;
+    bottom: 48px; right: var(--pad-x);
+    font-size: 24px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--charcoal-2);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .frame--dark .footer-end, .frame--green .footer-end { color: var(--green-soft); }
+
+  /* ── Type ─────────────────────────────────────────── */
+  .eyebrow {
+    font-size: 24px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green-deep);
+    font-weight: 700;
+  }
+  .frame--dark .eyebrow, .frame--green .eyebrow { color: var(--green-soft); }
+  .title {
+    font-size: 84px;
+    font-weight: 900;
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    color: var(--charcoal);
+  }
+  .frame--dark .title, .frame--green .title { color: var(--paper); }
+  .title em, .display em, .signoff-big em {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    color: var(--green-deep);
+    letter-spacing: -0.015em;
+  }
+  .frame--dark .title em, .frame--green .title em,
+  .frame--dark .display em, .frame--green .display em { color: var(--green-soft); }
+  .display {
+    font-size: 120px;
+    font-weight: 900;
+    line-height: 0.94;
+    letter-spacing: -0.03em;
+    color: var(--charcoal);
+  }
+  .lead {
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 1.35;
+    max-width: 1300px;
+    color: var(--charcoal);
+  }
+  .frame--dark .lead, .frame--green .lead { color: var(--paper); }
+  .body {
+    font-size: 26px;
+    line-height: 1.5;
+    max-width: 980px;
+  }
+  .small { font-size: 24px; line-height: 1.45; color: var(--charcoal-2); }
+  .quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 42px;
+    line-height: 1.3;
+    font-weight: 500;
+    color: var(--green-deep);
+  }
+
+  /* Brand title rule (small green underline beneath a title) */
+  .rule {
+    width: 90px;
+    height: 4px;
+    background: var(--green);
+    border-radius: 999px;
+    margin: 28px 0 36px;
+  }
+  .frame--dark .rule, .frame--green .rule { background: var(--green-soft); }
+
+  /* ── 01 — COVER ──────────────────────────────────── */
+  .cover { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; height: 100%; align-items: center; padding: 0 var(--pad-x); }
+  .cover__hero { display:flex; align-items:center; justify-content:center; position: relative; }
+  .cover__hero::before {
+    content: ""; position: absolute; inset: -40px;
+    background-image: radial-gradient(circle, var(--paper-deep) 1.6px, transparent 1.6px);
+    background-size: 32px 32px;
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 72%);
+            mask-image: radial-gradient(ellipse at center, black 30%, transparent 72%);
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  .cover__hero svg { width: 520px; height: 520px; position: relative; }
+  .cover__meta { display: flex; flex-direction: column; gap: 28px; }
+  .cover__eyebrow {
+    font-size: 28px; letter-spacing: 0.32em; text-transform: uppercase;
+    font-weight: 700; color: var(--green-deep);
+  }
+  .cover__title {
+    font-size: 156px; font-weight: 900; line-height: 0.9;
+    letter-spacing: -0.035em; color: var(--charcoal);
+  }
+  .cover__title em {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    color: var(--green-deep); letter-spacing: -0.02em;
+  }
+  .cover__sub { font-size: 32px; color: var(--charcoal-2); max-width: 720px; line-height: 1.32; }
+  .cover__stamp {
+    display: flex; gap: 48px; margin-top: 16px;
+    font-size: 24px; color: var(--charcoal-2);
+    letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700;
+  }
+  .cover__stamp strong { color: var(--charcoal); font-weight: 900; display: block; margin-top: 6px; font-size: 28px; letter-spacing: -0.01em; text-transform: none; }
+
+  /* ── Hero text slide ─────────────────────────────── */
+  .hero-stack { margin-top: 24px; display: flex; flex-direction: column; gap: 28px; flex: 1; justify-content: center; }
+  .hero-statement {
+    font-size: 76px; font-weight: 700; line-height: 1.08;
+    letter-spacing: -0.015em; color: var(--charcoal);
+    max-width: 1600px;
+  }
+  .hero-statement em {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    color: var(--green-deep); letter-spacing: -0.005em;
+  }
+  .hero-statement b { font-weight: 900; color: var(--charcoal); background: linear-gradient(180deg, transparent 64%, rgba(122,171,58,0.32) 64%); padding: 0 4px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 14px 14px; margin-top: 32px; }
+  .chip {
+    font-size: 24px;
+    padding: 12px 22px;
+    border: 2px solid var(--paper-deep);
+    border-radius: 999px;
+    background: var(--white);
+    color: var(--charcoal);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .chip.green { border-color: var(--green); color: var(--green-deep); background: var(--green-mist); }
+
+  /* ── Explainer ─────────────────────────────────── */
+  .explainer-grid {
+    flex: 1;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 96px;
+    align-items: start; margin-top: 12px;
+  }
+  .kicker {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    font-size: 40px; line-height: 1.25; color: var(--green-deep);
+    max-width: 720px; padding-top: 32px; margin-top: 28px;
+    border-top: 1px solid var(--paper-deep);
+  }
+
+  /* ── Ecosystem diagram (slide 5) ─────────────────── */
+  .ecosystem-layout {
+    flex: 1; display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: stretch; margin-top: 28px;
+  }
+  .ecosystem-desc { display: flex; flex-direction: column; gap: 24px; justify-content: center; }
+  .stack-diagram { display: flex; flex-direction: column; gap: 16px; align-self: center; width: 100%; }
+  .stack-band {
+    display: grid; grid-template-columns: 80px 1fr 180px; gap: 28px;
+    padding: 32px 36px;
+    border: 1px solid var(--paper-deep);
+    background: var(--white);
+    align-items: center;
+    border-radius: 6px;
+  }
+  .stack-band.l1 { background: var(--green-mist); border-color: var(--green-soft); }
+  .stack-band.l2 { background: var(--charcoal); color: var(--paper); border-color: var(--charcoal); }
+  .stack-band.l3 { background: var(--green-soft); border-color: #A6BD80; }
+  .stack-band .num {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    font-size: 64px; line-height: 0.9; color: var(--green-deep);
+  }
+  .stack-band.l2 .num { color: var(--green-soft); }
+  .stack-band .lname { font-size: 36px; font-weight: 900; line-height: 1.05; letter-spacing: -0.015em; }
+  .stack-band .ldesc { font-size: 24px; color: var(--charcoal-2); margin-top: 4px; line-height: 1.35; }
+  .stack-band.l2 .ldesc { color: var(--green-soft); }
+  .stack-band .role {
+    font-size: 24px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--charcoal-2); text-align: right; font-weight: 700;
+  }
+  .stack-band.l2 .role { color: var(--green-soft); }
+  .stack-arrow { text-align: center; color: var(--charcoal-2); font-size: 26px; }
+
+  /* ── Layer Figure slides (6, 11) ─────────────────── */
+  .layer-figure { flex: 1; display: flex; flex-direction: column; gap: 14px; margin-top: 32px; }
+  .lf-band {
+    display: grid; grid-template-columns: 80px 280px 1fr; gap: 36px;
+    padding: 30px 40px;
+    border-radius: 6px;
+    align-items: center;
+    border: 1px solid transparent;
+  }
+  .lf-band.l1 { background: var(--green-mist); border-color: var(--green-soft); }
+  .lf-band.l2 { background: var(--charcoal); color: var(--paper); }
+  .lf-band.l3 { background: var(--green-soft); }
+  .lf-band .num {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    font-size: 64px; line-height: 0.85; color: var(--green-deep);
+  }
+  .lf-band.l2 .num { color: var(--green-soft); }
+  .lf-band .lname { font-size: 40px; font-weight: 900; line-height: 1.0; letter-spacing: -0.015em; }
+  .lf-band .focus { display: flex; flex-wrap: wrap; gap: 12px 12px; }
+  .lf-pill {
+    font-size: 24px; padding: 10px 18px;
+    border: 1px solid rgba(61,61,61,0.22);
+    border-radius: 999px;
+    color: var(--charcoal);
+    background: rgba(255,255,255,0.35);
+    letter-spacing: 0.02em;
+    font-weight: 700;
+  }
+  .lf-band.l2 .lf-pill {
+    border-color: rgba(244,238,222,0.35); color: var(--paper);
+    background: rgba(244,238,222,0.06);
+  }
+  .lf-band.l3 .lf-pill { background: rgba(255,255,255,0.5); }
+  .lf-consumer {
+    display: grid; grid-template-columns: 80px 280px 1fr; gap: 36px;
+    padding: 26px 40px;
+    border: 2px dashed var(--green); border-radius: 6px;
+    align-items: center;
+    background: transparent;
+  }
+  .lf-consumer .num {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    font-size: 64px; line-height: 0.85; color: var(--green-deep);
+  }
+  .lf-consumer .lname { font-size: 36px; font-weight: 900; letter-spacing: -0.015em; }
+  .lf-consumer .ldesc { font-size: 24px; color: var(--charcoal-2); line-height: 1.4; max-width: 800px; }
+  .lf-arrow { text-align: center; color: var(--charcoal-2); font-size: 28px; letter-spacing: 0.5em; margin: -4px 0; }
+
+  /* ── Layer detail (7-10) ─────────────────────────── */
+  .ld-layout { flex: 1; display: grid; grid-template-columns: 340px 1fr; gap: 80px; margin-top: 16px; }
+  .ld-num {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    font-size: 220px; line-height: 0.85; color: var(--green-deep);
+  }
+  .ld-num small {
+    display: block;
+    font-family: var(--sans); font-style: normal; font-weight: 700;
+    font-size: 24px; color: var(--charcoal-2); margin-top: 24px;
+    letter-spacing: 0.18em; text-transform: uppercase; line-height: 1.3;
+  }
+  .ld-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 16px; padding-top: 32px; border-top: 1px solid var(--paper-deep); }
+  .ld-col h4 {
+    font-size: 24px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--green-deep); margin-bottom: 20px; font-weight: 700;
+  }
+  .ld-col ul { display: flex; flex-direction: column; gap: 14px; }
+  .ld-col li {
+    font-size: 26px; line-height: 1.4; color: var(--charcoal);
+    padding-left: 28px; position: relative;
+  }
+  .ld-col li::before {
+    content: ""; position: absolute; left: 0; top: 14px;
+    width: 14px; height: 14px;
+    background: var(--green);
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  }
+  .ld-col.wide { grid-column: 1 / -1; }
+  .ld-col.wide ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 32px; }
+
+  /* ── Card grid patterns ─────────────────────────── */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; flex: 1; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 32px; flex: 1; }
+  .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin-top: 32px; flex: 1; }
+  .grid-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 32px; flex: 1; }
+
+  .card {
+    background: var(--white);
+    border: 1px solid var(--paper-deep);
+    border-radius: 6px;
+    padding: 36px 32px;
+    display: flex; flex-direction: column; gap: 14px;
+    border-top: 4px solid var(--green);
+  }
+  .card .ix {
+    font-size: 24px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--green-deep); font-weight: 700;
+  }
+  .card h3 { font-size: 36px; font-weight: 900; line-height: 1.0; letter-spacing: -0.015em; color: var(--charcoal); }
+  .card p { font-size: 24px; line-height: 1.4; color: var(--charcoal-2); }
+  .card .meta {
+    margin-top: auto; padding-top: 20px; border-top: 1px solid var(--paper-deep);
+    font-size: 24px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--charcoal-2); font-weight: 700;
+  }
+  .card ul { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+  .card li {
+    font-size: 24px; line-height: 1.35; color: var(--charcoal);
+    padding-left: 26px; position: relative;
+  }
+  .card li::before {
+    content: ""; position: absolute; left: 0; top: 12px;
+    width: 12px; height: 12px;
+    background: var(--green);
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  }
+
+  /* Drivers card (with big serif numeral) */
+  .driver {
+    background: var(--white); border: 1px solid var(--paper-deep);
+    border-radius: 6px; padding: 30px 26px;
+    display: flex; flex-direction: column; gap: 22px;
+    border-top: 4px solid var(--green);
+  }
+  .driver .n {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    font-size: 72px; line-height: 0.85; color: var(--green-deep);
+  }
+  .driver h3 { font-size: 30px; font-weight: 900; line-height: 1.25; letter-spacing: -0.01em; color: var(--charcoal); margin-bottom: 8px; }
+  .driver p { font-size: 24px; line-height: 1.4; color: var(--charcoal-2); }
+
+  /* ── Section divider ─────────────────────────────── */
+  .section-layout { flex: 1; display: grid; grid-template-columns: 460px 1fr; gap: 80px; align-items: end; }
+  .section-roman {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    font-size: 340px; line-height: 0.85; color: var(--green-soft);
+  }
+  .section-title {
+    font-size: 132px; font-weight: 900; line-height: 0.94;
+    letter-spacing: -0.03em; color: var(--paper);
+  }
+  .section-title em {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    color: var(--green-soft); letter-spacing: -0.02em;
+  }
+  .section-sub {
+    font-size: 30px; color: var(--green-soft);
+    max-width: 880px; line-height: 1.4; margin-top: 28px;
+  }
+
+  /* ── Structure detail (14-17) — same layout as layer detail ─── */
+
+  /* ── Roadmap timeline (19) ───────────────────────── */
+  .timeline { flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 32px; }
+  .timeline .stage {
+    background: var(--white);
+    border: 1px solid var(--paper-deep);
+    border-radius: 6px;
+    border-top: 4px solid var(--green);
+    padding: 36px 30px;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .timeline .stage .n {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    font-size: 86px; line-height: 0.85; color: var(--green-deep);
+  }
+  .timeline .stage h3 { font-size: 36px; font-weight: 900; line-height: 1.02; letter-spacing: -0.015em; color: var(--charcoal); }
+  .timeline .stage p { font-size: 24px; color: var(--charcoal-2); line-height: 1.4; }
+  .timeline .stage .tag {
+    margin-top: auto; padding-top: 18px; border-top: 1px solid var(--paper-deep);
+    font-size: 24px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--green-deep); font-weight: 700;
+  }
+
+  /* ── Stage detail (20-23) ────────────────────────── */
+  .sd-layout { flex: 1; display: grid; grid-template-columns: 340px 1fr; gap: 80px; margin-top: 16px; }
+  .sd-num {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    font-size: 220px; line-height: 0.85; color: var(--green-deep);
+  }
+  .sd-num small {
+    display: block;
+    font-family: var(--sans); font-style: normal; font-weight: 700;
+    font-size: 24px; color: var(--charcoal-2); margin-top: 24px;
+    letter-spacing: 0.18em; text-transform: uppercase; line-height: 1.3;
+  }
+  .sd-obj {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    font-size: 38px; line-height: 1.28; color: var(--green-deep);
+    max-width: 1080px; padding-bottom: 32px;
+    border-bottom: 1px solid var(--paper-deep); margin-bottom: 32px;
+  }
+
+  /* ── Recap (30) ──────────────────────────────────── */
+  .recap-grid { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 32px; }
+  .recap-col h3 {
+    font-size: 24px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--green-deep); font-weight: 700; margin-bottom: 24px;
+  }
+  .recap-item {
+    border-top: 1px solid var(--paper-deep);
+    padding: 26px 0;
+    display: grid; grid-template-columns: 60px 1fr; gap: 24px;
+    align-items: baseline;
+  }
+  .recap-item:last-child { border-bottom: 1px solid var(--paper-deep); }
+  .recap-item .n {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    font-size: 36px; color: var(--green-deep);
+  }
+  .recap-item .t {
+    font-size: 30px; line-height: 1.25; color: var(--charcoal); font-weight: 400;
+  }
+  .recap-item .t em {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    color: var(--green-deep);
+  }
+
+  /* ── Sign-off (31) ───────────────────────────────── */
+  .signoff { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 64px; flex: 1; }
+  .signoff-big {
+    font-size: 132px; font-weight: 900; line-height: 1.0;
+    letter-spacing: -0.035em; color: var(--paper);
+    width: 100%;
+  }
+  .signoff-big em {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    color: var(--green-soft);
+  }
+  .signoff-sub { font-size: 32px; color: var(--green-soft); max-width: 1000px; line-height: 1.3; }
+
+  /* small inline mark used in chrome */
+  .mark-mini { display:inline-flex; }
+</style>
+</head>
+<body>
+
+<deck-stage width="1920" height="1080">
+
+  <!-- 01 COVER -->
+  <section data-label="01 Title">
+    <div class="frame">
+      <div class="corner-label">SIAM · Foundation</div>
+      <div class="corner-num">01 / 32</div>
+      <div class="cover">
+        <div class="cover__hero">
+          <svg viewBox="0 0 200 200" style="color: var(--charcoal);" aria-label="In Silva mark">
+            <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+            <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+            <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="cover__meta">
+          <div class="cover__eyebrow">Service Integration &amp; Management</div>
+          <div class="cover__title">SIAM,<br/><em>foundation.</em></div>
+          <div class="cover__sub">A walk through the framework for creating value in a multi-sourced service ecosystem — its layers, its structures, and the roadmap to get there.</div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Helping you through the digital forest</div>
+    </div>
+  </section>
+
+
+
+  <!-- 02 SECTION I · FOUNDATIONS -->
+  <section data-label="02 Section · Foundations">
+    <div class="frame frame--dark">
+      <div class="corner-label">Part one</div>
+      <div class="corner-num">02 / 32</div>
+      <div class="section-layout">
+        <div class="section-roman">I.</div>
+        <div>
+          <div class="eyebrow">Setting the scene</div>
+          <h2 class="section-title">SIAM,<br/><em>defined.</em></h2>
+          <div class="section-sub">What it is, who's in the three-layer ecosystem, and how it's governed — before we look at the structures or the roadmap.</div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Concepts · ecosystem · governance</div>
+    </div>
+  </section>
+
+  <!-- 03 WHY SIAM EXISTS -->
+  <section data-label="03 Why SIAM exists">
+    <div class="frame">
+      <div class="corner-label">01 · The problem</div>
+      <div class="corner-num">03 / 32</div>
+      <div class="hero-stack">
+        <div class="eyebrow">Why SIAM exists</div>
+        <div class="hero-statement">
+          Almost no organization gets its services from a single supplier. When the <b>objectives</b>, <b>contracts</b> and <b>targets</b> of internal teams and external providers don't line up, complexity becomes <em>the customer's problem.</em>
+        </div>
+        <div class="chips">
+          <span class="chip">internal teams</span>
+          <span class="chip">external providers</span>
+          <span class="chip">cloud platforms</span>
+          <span class="chip">specialist vendors</span>
+          <span class="chip">shadow IT</span>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">The multi-sourced reality</div>
+    </div>
+  </section>
+
+  <!-- 03 WHAT SIAM IS -->
+  <section data-label="04 What SIAM is">
+    <div class="frame">
+      <div class="corner-label">02 · Definition</div>
+      <div class="corner-num">04 / 32</div>
+      <div class="hero-stack">
+        <div class="eyebrow">What SIAM is</div>
+        <div class="hero-statement">
+          SIAM is a <b>management methodology</b> for creating value in an ecosystem where multiple service providers — internal, external, or both — work together to deliver services to <em>a single customer organization.</em>
+        </div>
+        <div class="chips">
+          <span class="chip green">service integration</span>
+          <span class="chip">+ management</span>
+          <span class="chip green">= SIAM</span>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">S · I · A · M</div>
+    </div>
+  </section>
+
+  <!-- 04 FRAMEWORK, NOT PRESCRIPTION -->
+  <section data-label="05 Framework, not prescription">
+    <div class="frame">
+      <div class="corner-label">03 · Note</div>
+      <div class="corner-num">05 / 32</div>
+      <div class="eyebrow" style="margin-top: 20px;">A framework, not a prescription</div>
+      <div class="explainer-grid">
+        <div>
+          <h2 class="title">SIAM is <em>not</em><br/>one-size-fits-all.</h2>
+          <div class="rule"></div>
+          <p class="body">It is a comprehensive framework of guidelines, best practices, concepts and models — designed to be <strong>applied flexibly</strong> to suit the needs of your specific multi-sourced ecosystem.</p>
+        </div>
+        <div>
+          <p class="body" style="margin-top: 20px;">What SIAM gives you is a <strong>shared vocabulary</strong> and a set of well-understood building blocks. What you build with them depends on your organization, your providers, and the outcomes you need.</p>
+          <div class="kicker">Same blocks. Different buildings.</div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Methodology · framework · practice</div>
+    </div>
+  </section>
+
+  <!-- 05 ECOSYSTEM -->
+  <section data-label="06 The SIAM ecosystem">
+    <div class="frame">
+      <div class="corner-label">04 · Ecosystem</div>
+      <div class="corner-num">06 / 32</div>
+      <div class="ecosystem-layout">
+        <div class="ecosystem-desc">
+          <div class="eyebrow">The three layers</div>
+          <h2 class="title">One customer.<br/>One integrator.<br/><em>Many providers.</em></h2>
+          <div class="rule"></div>
+          <p class="body">Every SIAM ecosystem is structured around three layers, each with a defined role and the capability to play it. The shape may vary; the layers don't.</p>
+        </div>
+        <div class="stack-diagram">
+          <div class="stack-band l1">
+            <div class="num">01</div>
+            <div><div class="lname">Customer organization</div><div class="ldesc">Commissions the ecosystem · holds retained capabilities</div></div>
+            <div class="role">Client</div>
+          </div>
+          <div class="stack-arrow">↓</div>
+          <div class="stack-band l2">
+            <div class="num">02</div>
+            <div><div class="lname">Service integrator</div><div class="ldesc">End-to-end governance, management, integration, assurance, coordination</div></div>
+            <div class="role">Conductor</div>
+          </div>
+          <div class="stack-arrow">↓</div>
+          <div class="stack-band l3">
+            <div class="num">03</div>
+            <div><div class="lname">Service provider(s)</div><div class="ldesc">One or many · internal, external, or a mixture of both</div></div>
+            <div class="role">Delivery</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Layers, not silos</div>
+    </div>
+  </section>
+
+  <!-- 06 FIGURE 1 -->
+  <section data-label="07 Figure 1 · Focus of the SIAM layers">
+    <div class="frame">
+      <div class="corner-label">04 · Ecosystem</div>
+      <div class="corner-num">07 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">Focus of the SIAM layers</div>
+      <h2 class="title" style="margin-top: 16px;">Three layers, <em>three kinds of work.</em></h2>
+      <div class="layer-figure">
+        <div class="lf-band l1">
+          <div class="num">01</div>
+          <div class="lname">Customer<br/>organization</div>
+          <div class="focus">
+            <span class="lf-pill">strategy</span>
+            <span class="lf-pill">business outcomes</span>
+            <span class="lf-pill">demand</span>
+            <span class="lf-pill">corporate governance</span>
+            <span class="lf-pill">business engagement</span>
+          </div>
+        </div>
+        <div class="lf-band l2">
+          <div class="num">02</div>
+          <div class="lname">Service<br/>integrator</div>
+          <div class="focus">
+            <span class="lf-pill">governance</span>
+            <span class="lf-pill">management</span>
+            <span class="lf-pill">integration</span>
+            <span class="lf-pill">assurance</span>
+            <span class="lf-pill">coordination</span>
+          </div>
+        </div>
+        <div class="lf-band l3">
+          <div class="num">03</div>
+          <div class="lname">Service<br/>provider(s)</div>
+          <div class="focus">
+            <span class="lf-pill">service delivery</span>
+            <span class="lf-pill">operations</span>
+            <span class="lf-pill">technology</span>
+            <span class="lf-pill">process execution</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Different focus · different accountabilities</div>
+    </div>
+  </section>
+
+  <!-- 07 CUSTOMER ORG -->
+  <section data-label="08 Customer organization">
+    <div class="frame">
+      <div class="corner-label">04 · Ecosystem</div>
+      <div class="corner-num">08 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">Layer · 01</div>
+      <h2 class="title" style="margin-top: 12px;">Customer<br/>organization.</h2>
+      <div class="rule"></div>
+      <div class="ld-layout" style="grid-template-columns: 340px 1fr;">
+        <div>
+          <div class="ld-num">01<small>CUSTOMER<br/>ORGANIZATION</small></div>
+        </div>
+        <div>
+          <p class="lead">The client making the transition to SIAM and <em style="font-family:var(--serif);font-style:italic;color:var(--green-deep);font-weight:500;">commissioning</em> the ecosystem. It owns the contracts, the corporate governance, and ultimately the outcomes the whole thing exists to deliver.</p>
+          <div class="ld-cols">
+            <div class="ld-col">
+              <h4>Typical contents</h4>
+              <ul>
+                <li>Business units (HR, finance, sales)</li>
+                <li>An internal IT function</li>
+                <li>Its own customers — the end users</li>
+                <li>Retained capabilities (next slide)</li>
+              </ul>
+            </div>
+            <div class="ld-col">
+              <h4>Owns &amp; provides</h4>
+              <ul>
+                <li>Contracts with external providers</li>
+                <li>Relationship with the integrator</li>
+                <li>Corporate governance over internal teams</li>
+                <li>The business case for SIAM</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">The client of the ecosystem</div>
+    </div>
+  </section>
+
+  <!-- 08 RETAINED CAPABILITIES -->
+  <section data-label="09 Retained capabilities">
+    <div class="frame">
+      <div class="corner-label">04 · Ecosystem</div>
+      <div class="corner-num">09 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">Layer 01 · Inside the customer organization</div>
+      <h2 class="title" style="margin-top: 12px;">Retained<br/>capabilities.</h2>
+      <div class="rule"></div>
+      <div class="ld-layout">
+        <div>
+          <div class="ld-num">01<small>THE INTELLIGENT<br/>CLIENT FUNCTION</small></div>
+        </div>
+        <div>
+          <p class="lead">The strategic, architectural and governance functions the customer <em style="font-family:var(--serif);font-style:italic;color:var(--green-deep);font-weight:500;">keeps in-house</em> — so it has the skills, knowledge and authority to govern its providers credibly.</p>
+          <div class="ld-cols">
+            <div class="ld-col wide">
+              <h4>Typical retained capabilities</h4>
+              <ul>
+                <li>Enterprise architecture</li>
+                <li>Policy &amp; standards management</li>
+                <li>Procurement</li>
+                <li>Contract management</li>
+                <li>Demand management</li>
+                <li>Financial &amp; commercial management</li>
+                <li>Service portfolio management</li>
+                <li>Corporate risk management</li>
+                <li>Governance of the service integrator</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Why retain? Differentiation · regulation · credible authority</div>
+    </div>
+  </section>
+
+  <!-- 09 SERVICE INTEGRATOR -->
+  <section data-label="10 Service integrator">
+    <div class="frame">
+      <div class="corner-label">04 · Ecosystem</div>
+      <div class="corner-num">10 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">Layer · 02 · Key concept</div>
+      <h2 class="title" style="margin-top: 12px;">Service<br/>integrator.</h2>
+      <div class="rule"></div>
+      <div class="ld-layout">
+        <div>
+          <div class="ld-num">02<small>SERVICE<br/>INTEGRATOR</small></div>
+        </div>
+        <div>
+          <p class="lead">A logical entity — one team or several, internal or external — held accountable for the <em style="font-family:var(--serif);font-style:italic;color:var(--green-deep);font-weight:500;">end-to-end delivery</em> of services across the ecosystem. The conductor of the orchestra.</p>
+          <div class="ld-cols">
+            <div class="ld-col">
+              <h4>Five-fold accountability</h4>
+              <ul>
+                <li>Governance</li>
+                <li>Management</li>
+                <li>Integration</li>
+                <li>Assurance</li>
+                <li>Coordination</li>
+              </ul>
+            </div>
+            <div class="ld-col">
+              <h4>Sits between</h4>
+              <ul>
+                <li>The customer organization (Layer 01)</li>
+                <li>The service providers (Layer 03)</li>
+                <li>One logical entity — possibly many teams</li>
+                <li>Independent from any retained capability</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Without one: musicians. With one: music.</div>
+    </div>
+  </section>
+
+  <!-- 10 SERVICE PROVIDERS -->
+  <section data-label="11 Service providers">
+    <div class="frame">
+      <div class="corner-label">04 · Ecosystem</div>
+      <div class="corner-num">11 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">Layer · 03</div>
+      <h2 class="title" style="margin-top: 12px;">Service<br/>provider(s).</h2>
+      <div class="rule"></div>
+      <div class="ld-layout">
+        <div>
+          <div class="ld-num">03<small>SERVICE<br/>PROVIDER(S)</small></div>
+        </div>
+        <div>
+          <p class="lead">One or many. Internal, external, or a mix. Each is responsible for delivering <em style="font-family:var(--serif);font-style:italic;color:var(--green-deep);font-weight:500;">one or more services</em> — or service elements — and for running the products, technology and processes behind them.</p>
+          <div class="ld-cols">
+            <div class="ld-col">
+              <h4>Responsibilities</h4>
+              <ul>
+                <li>Delivery of one or more services</li>
+                <li>Managing the products &amp; technology</li>
+                <li>Operating their own processes</li>
+                <li>Meeting contractual obligations &amp; SLAs</li>
+              </ul>
+            </div>
+            <div class="ld-col">
+              <h4>Typical types</h4>
+              <ul>
+                <li>Internal IT teams</li>
+                <li>External managed service providers</li>
+                <li>Cloud &amp; SaaS platforms</li>
+                <li>Application development &amp; maintenance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">The hands doing the work</div>
+    </div>
+  </section>
+
+  <!-- 11 FIGURE 2 -->
+  <section data-label="12 Figure 2 · Layers + consumers">
+    <div class="frame">
+      <div class="corner-label">04 · Ecosystem</div>
+      <div class="corner-num">12 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">Layers + consumers</div>
+      <h2 class="title" style="margin-top: 12px;">Who the ecosystem <em>ultimately serves.</em></h2>
+      <div class="layer-figure">
+        <div class="lf-consumer">
+          <div class="num">∞</div>
+          <div class="lname">End consumers</div>
+          <div class="ldesc">Employees, citizens, customers — the people who use the products and services the customer organization produces.</div>
+        </div>
+        <div class="lf-arrow">↓ ↓ ↓</div>
+        <div class="lf-band l1">
+          <div class="num">01</div>
+          <div class="lname">Customer<br/>organization</div>
+          <div class="focus">
+            <span class="lf-pill">business units</span>
+            <span class="lf-pill">retained capabilities</span>
+            <span class="lf-pill">owns the outcomes</span>
+          </div>
+        </div>
+        <div class="lf-band l2">
+          <div class="num">02</div>
+          <div class="lname">Service<br/>integrator</div>
+          <div class="focus">
+            <span class="lf-pill">end-to-end accountability</span>
+            <span class="lf-pill">cross-provider coordination</span>
+          </div>
+        </div>
+        <div class="lf-band l3">
+          <div class="num">03</div>
+          <div class="lname">Service<br/>provider(s)</div>
+          <div class="focus">
+            <span class="lf-pill">delivery</span>
+            <span class="lf-pill">technology</span>
+            <span class="lf-pill">operations</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Services flow up · accountability flows down</div>
+    </div>
+  </section>
+
+  <!-- 12 GOVERNANCE LEVELS -->
+  <section data-label="13 Three levels of governance">
+    <div class="frame">
+      <div class="corner-label">05 · Governance</div>
+      <div class="corner-num">13 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">Three levels of governance</div>
+      <h2 class="title" style="margin-top: 12px;">Same ecosystem, <em>three cadences.</em></h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="ix">Level · 01</div>
+          <h3>Strategic.</h3>
+          <p>Long-term direction, executive sponsorship, alignment of the ecosystem with business goals and outcomes.</p>
+          <div class="meta">Execs · Sponsors · Board</div>
+        </div>
+        <div class="card">
+          <div class="ix">Level · 02</div>
+          <h3>Tactical.</h3>
+          <p>Designing how processes, tools and data flow across providers. Setting standards. Resolving cross-provider issues.</p>
+          <div class="meta">Process owners · Mgmt</div>
+        </div>
+        <div class="card">
+          <div class="ix">Level · 03</div>
+          <h3>Operational.</h3>
+          <p>Day-to-day delivery — incidents, changes, performance — across the whole ecosystem, not provider-by-provider.</p>
+          <div class="meta">Service teams · Desk</div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Each level has its own boards, forums and groups</div>
+    </div>
+  </section>
+
+  <!-- 13 SECTION I -->
+  <section data-label="14 Section · Four SIAM structures">
+    <div class="frame frame--dark">
+      <div class="corner-label">Part two</div>
+      <div class="corner-num">14 / 32</div>
+      <div class="section-layout">
+        <div class="section-roman">II.</div>
+        <div>
+          <div class="eyebrow">Sourcing the integrator</div>
+          <h2 class="section-title">Four SIAM<br/><em>structures.</em></h2>
+          <div class="section-sub">Who actually plays the service integrator role? The choice shapes cost, control, agility — and the kind of risks you'll face.</div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">4 structures · 4 slides</div>
+    </div>
+  </section>
+
+  <!-- 14 INTERNALLY SOURCED -->
+  <section data-label="15 Internally sourced">
+    <div class="frame">
+      <div class="corner-label">Sourcing the integrator</div>
+      <div class="corner-num">15 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">Structure · 01</div>
+      <h2 class="title" style="margin-top: 12px;">Internally sourced<br/>service integrator.</h2>
+      <div class="rule"></div>
+      <div class="ld-layout">
+        <div>
+          <div class="ld-num">01<small>INTERNALLY<br/>SOURCED</small></div>
+        </div>
+        <div>
+          <p class="lead">The customer organization plays the integrator role itself. Maximum <em style="font-family:var(--serif);font-style:italic;color:var(--green-deep);font-weight:500;">control and ownership</em> — at the cost of having to build and sustain the capability in-house.</p>
+          <div class="ld-cols">
+            <div class="ld-col">
+              <h4>Advantages</h4>
+              <ul><li>Direct control and accountability</li><li>No third party in the middle</li><li>Independence from any provider's commercial interests</li></ul>
+            </div>
+            <div class="ld-col">
+              <h4>Disadvantages</h4>
+              <ul><li>Must build and maintain integration capability</li><li>Internal providers may resist internal authority</li><li>Slower to stand up than buying-in expertise</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Best when capability already exists in-house</div>
+    </div>
+  </section>
+
+  <!-- 15 EXTERNALLY SOURCED -->
+  <section data-label="16 Externally sourced">
+    <div class="frame">
+      <div class="corner-label">Sourcing the integrator</div>
+      <div class="corner-num">16 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">Structure · 02</div>
+      <h2 class="title" style="margin-top: 12px;">Externally sourced<br/>service integrator.</h2>
+      <div class="rule"></div>
+      <div class="ld-layout">
+        <div>
+          <div class="ld-num">02<small>EXTERNALLY<br/>SOURCED</small></div>
+        </div>
+        <div>
+          <p class="lead">An external organization is appointed to be the integrator. <em style="font-family:var(--serif);font-style:italic;color:var(--green-deep);font-weight:500;">Mature expertise, fast.</em> But authority is only as strong as the customer's willingness to back it.</p>
+          <div class="ld-cols">
+            <div class="ld-col">
+              <h4>Advantages</h4>
+              <ul><li>Buys in proven integration capability</li><li>Faster to stand up than building internally</li><li>Independent from service providers</li></ul>
+            </div>
+            <div class="ld-col">
+              <h4>Disadvantages</h4>
+              <ul><li>No authority over providers without customer backing</li><li>Additional cost and contract to manage</li><li>Customer still needs strong retained capabilities</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Empower it, or it becomes a paper tiger</div>
+    </div>
+  </section>
+
+  <!-- 16 LEAD SUPPLIER -->
+  <section data-label="17 Lead supplier">
+    <div class="frame">
+      <div class="corner-label">Sourcing the integrator</div>
+      <div class="corner-num">17 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">Structure · 03</div>
+      <h2 class="title" style="margin-top: 12px;">Lead supplier as<br/>service integrator.</h2>
+      <div class="rule"></div>
+      <div class="ld-layout">
+        <div>
+          <div class="ld-num">03<small>LEAD<br/>SUPPLIER</small></div>
+        </div>
+        <div>
+          <p class="lead">One service provider — usually the largest — also plays integrator. <em style="font-family:var(--serif);font-style:italic;color:var(--green-deep);font-weight:500;">Simpler contracting</em>, but watch for the conflict of interest baked into the model.</p>
+          <div class="ld-cols">
+            <div class="ld-col">
+              <h4>Advantages</h4>
+              <ul><li>One prime contract, fewer interfaces</li><li>Existing relationship and domain knowledge</li><li>Useful as a transitional structure</li></ul>
+            </div>
+            <div class="ld-col">
+              <h4>Disadvantages</h4>
+              <ul><li>Inherent conflict: assuring work you also deliver</li><li>Bias toward own services, away from competitors</li><li>Lock-in risk — switching costs grow over time</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Manage the bias, or it manages you</div>
+    </div>
+  </section>
+
+  <!-- 17 HYBRID -->
+  <section data-label="18 Hybrid">
+    <div class="frame">
+      <div class="corner-label">Sourcing the integrator</div>
+      <div class="corner-num">18 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">Structure · 04</div>
+      <h2 class="title" style="margin-top: 12px;">Hybrid service<br/>integrator.</h2>
+      <div class="rule"></div>
+      <div class="ld-layout">
+        <div>
+          <div class="ld-num">04<small>HYBRID</small></div>
+        </div>
+        <div>
+          <p class="lead">The customer collaborates with one or more external organizations to <em style="font-family:var(--serif);font-style:italic;color:var(--green-deep);font-weight:500;">share</em> the integrator role. Powerful and flexible — and the most demanding to design well.</p>
+          <div class="ld-cols">
+            <div class="ld-col">
+              <h4>Advantages</h4>
+              <ul><li>Combines internal context with external expertise</li><li>No single party needs every capability</li><li>Customer stays close to the work</li></ul>
+            </div>
+            <div class="ld-col">
+              <h4>Disadvantages</h4>
+              <ul><li>Hardest structure to design and govern</li><li>Requires clear boundaries and escalation paths</li><li>Accountability can blur if not actively maintained</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Most powerful · most demanding</div>
+    </div>
+  </section>
+
+  <!-- 18 SECTION II -->
+  <section data-label="19 Section · The SIAM roadmap">
+    <div class="frame frame--green">
+      <div class="corner-label">Part three</div>
+      <div class="corner-num">19 / 32</div>
+      <div class="section-layout">
+        <div class="section-roman">III.</div>
+        <div>
+          <div class="eyebrow">Getting there</div>
+          <h2 class="section-title">The SIAM<br/><em>roadmap.</em></h2>
+          <div class="section-sub">An example plan for how a customer organization moves from where it is today to an operating model built around SIAM. Four stages. The work compounds.</div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">4 stages · 5 slides</div>
+    </div>
+  </section>
+
+  <!-- 19 FOUR STAGES -->
+  <section data-label="20 The four stages">
+    <div class="frame">
+      <div class="corner-label">Roadmap · Overview</div>
+      <div class="corner-num">20 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">The four stages</div>
+      <h2 class="title" style="margin-top: 12px;">From discovery <em>to continuous improvement.</em></h2>
+      <div class="timeline">
+        <div class="stage">
+          <div class="n">01</div>
+          <h3>Discovery<br/>&amp; Strategy</h3>
+          <p>Understand the current state, decide if SIAM fits, set strategic direction and outline business case.</p>
+          <div class="tag">Why · What</div>
+        </div>
+        <div class="stage">
+          <div class="n">02</div>
+          <h3>Plan<br/>&amp; Build</h3>
+          <p>Design the detailed SIAM model, approve the full business case, appoint integrator and providers.</p>
+          <div class="tag">How</div>
+        </div>
+        <div class="stage">
+          <div class="n">03</div>
+          <h3>Implement.</h3>
+          <p>Transition from as-is to to-be. Stand up the new model without breaking the existing services.</p>
+          <div class="tag">Do</div>
+        </div>
+        <div class="stage">
+          <div class="n">04</div>
+          <h3>Run<br/>&amp; Improve</h3>
+          <p>SIAM as business as usual. Operate, measure end-to-end, refine continuously as the ecosystem evolves.</p>
+          <div class="tag">Sustain</div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Each stage feeds the next</div>
+    </div>
+  </section>
+
+  <!-- 20 DISCOVERY AND STRATEGY -->
+  <section data-label="21 Discovery and Strategy">
+    <div class="frame">
+      <div class="corner-label">Roadmap · The Four Stages</div>
+      <div class="corner-num">21 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">Stage · 01</div>
+      <h2 class="title" style="margin-top: 12px;">Discovery<br/>&amp; Strategy.</h2>
+      <div class="rule"></div>
+      <div class="sd-layout">
+        <div>
+          <div class="sd-num">01<small>DISCOVERY<br/>&amp; STRATEGY</small></div>
+        </div>
+        <div>
+          <div class="sd-obj">Understand the current environment, decide whether SIAM is the right answer, and define the strategy and outline business case.</div>
+          <div class="ld-cols" style="border-top: none; padding-top: 0;">
+            <div class="ld-col">
+              <h4>Key activities</h4>
+              <ul><li>Establish the project</li><li>Define strategic objectives</li><li>Map existing services &amp; sourcing</li><li>Assess current maturity &amp; capability</li><li>Define the outline SIAM model</li></ul>
+            </div>
+            <div class="ld-col">
+              <h4>Key output</h4>
+              <ul><li>Outline business case</li><li>Strategic objectives for SIAM</li><li>Outline SIAM model &amp; principles</li><li>Marketplace understanding</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Get the "why" right before the "how"</div>
+    </div>
+  </section>
+
+  <!-- 21 PLAN AND BUILD -->
+  <section data-label="22 Plan and Build">
+    <div class="frame">
+      <div class="corner-label">Roadmap · The Four Stages</div>
+      <div class="corner-num">22 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">Stage · 02</div>
+      <h2 class="title" style="margin-top: 12px;">Plan<br/>&amp; Build.</h2>
+      <div class="rule"></div>
+      <div class="sd-layout">
+        <div>
+          <div class="sd-num">02<small>PLAN<br/>&amp; BUILD</small></div>
+        </div>
+        <div>
+          <div class="sd-obj">Turn the outline into a detailed model. Approve the full business case. Appoint the players and put the contracts in place.</div>
+          <div class="ld-cols" style="border-top: none; padding-top: 0;">
+            <div class="ld-col">
+              <h4>Key activities</h4>
+              <ul><li>Design the detailed SIAM model</li><li>Approve the full business case</li><li>Commence organizational change mgmt</li><li>Appoint the service integrator</li><li>Appoint service providers</li></ul>
+            </div>
+            <div class="ld-col">
+              <h4>Key output</h4>
+              <ul><li>Detailed SIAM model</li><li>Signed contracts &amp; agreements</li><li>Appointed integrator &amp; providers</li><li>Approved implementation plan</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Designing the to-be state</div>
+    </div>
+  </section>
+
+  <!-- 22 IMPLEMENT -->
+  <section data-label="23 Implement">
+    <div class="frame">
+      <div class="corner-label">Roadmap · The Four Stages</div>
+      <div class="corner-num">23 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">Stage · 03</div>
+      <h2 class="title" style="margin-top: 12px;">Implement.</h2>
+      <div class="rule"></div>
+      <div class="sd-layout">
+        <div>
+          <div class="sd-num">03<small>IMPLEMENT</small></div>
+        </div>
+        <div>
+          <div class="sd-obj">Manage the transition from the as-is current state to the to-be future state — without breaking what is already running.</div>
+          <div class="ld-cols" style="border-top: none; padding-top: 0;">
+            <div class="ld-col">
+              <h4>Key activities</h4>
+              <ul><li>Transition services to the new model</li><li>Stand up boards, forums &amp; working groups</li><li>Embed integrated processes &amp; tooling</li><li>Manage the cultural shift</li><li>Protect existing service quality</li></ul>
+            </div>
+            <div class="ld-col">
+              <h4>Key output</h4>
+              <ul><li>SIAM model in place &amp; operating</li><li>Active contracts &amp; governance bodies</li><li>Stable service delivery through the change</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Protect the running service</div>
+    </div>
+  </section>
+
+  <!-- 23 RUN AND IMPROVE -->
+  <section data-label="24 Run and Improve">
+    <div class="frame">
+      <div class="corner-label">Roadmap · The Four Stages</div>
+      <div class="corner-num">24 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">Stage · 04</div>
+      <h2 class="title" style="margin-top: 12px;">Run<br/>&amp; Improve.</h2>
+      <div class="rule"></div>
+      <div class="sd-layout">
+        <div>
+          <div class="sd-num">04<small>RUN<br/>&amp; IMPROVE</small></div>
+        </div>
+        <div>
+          <div class="sd-obj">SIAM becomes business as usual. The work shifts from project to operating model — and from operating model to continuous refinement.</div>
+          <div class="ld-cols" style="border-top: none; padding-top: 0;">
+            <div class="ld-col">
+              <h4>Key activities</h4>
+              <ul><li>Operate boards, forums &amp; working groups</li><li>Measure end-to-end service performance</li><li>Identify &amp; deliver improvements</li><li>Adapt the ecosystem as the business evolves</li><li>Onboard, transition or retire providers</li></ul>
+            </div>
+            <div class="ld-col">
+              <h4>Key output</h4>
+              <ul><li>Running ecosystem delivering value</li><li>End-to-end performance reporting</li><li>A continually improving operating model</li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">This stage never ends</div>
+    </div>
+  </section>
+
+  <!-- 24 ROLES -->
+  <section data-label="25 Roles and structural elements">
+    <div class="frame">
+      <div class="corner-label">Roles</div>
+      <div class="corner-num">25 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">Roles &amp; structural elements</div>
+      <h2 class="title" style="margin-top: 12px;">How the work <em>gets organized.</em></h2>
+      <div class="grid-3">
+        <div class="card">
+          <div class="ix">Element · 01</div>
+          <h3>Boards.</h3>
+          <p>Governance bodies that make decisions and direct the ecosystem.</p>
+          <ul>
+            <li>Strategic board</li>
+            <li>Tactical board</li>
+            <li>Operational board</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ix">Element · 02</div>
+          <h3>Forums.</h3>
+          <p>Standing groups that collaborate around a topic or process — sharing knowledge and coordinating work.</p>
+          <ul>
+            <li>Process forums</li>
+            <li>Technology forums</li>
+            <li>Customer forums</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ix">Element · 03</div>
+          <h3>Working groups.</h3>
+          <p>Time-boxed teams stood up to solve a specific problem — then disbanded.</p>
+          <ul>
+            <li>Major incident</li>
+            <li>Service transition</li>
+            <li>Improvement initiatives</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Boards decide · forums collaborate · groups solve</div>
+    </div>
+  </section>
+
+  <!-- 25 PRACTICES -->
+  <section data-label="26 The four practice areas">
+    <div class="frame">
+      <div class="corner-label">Practices</div>
+      <div class="corner-num">26 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">Four practice areas</div>
+      <h2 class="title" style="margin-top: 12px;">People, process, <em>measurement, technology.</em></h2>
+      <div class="grid-4">
+        <div class="card">
+          <div class="ix">Practice · 01</div>
+          <h3>People.</h3>
+          <p>Managing cross-functional teams and fostering collaboration across organizational boundaries.</p>
+        </div>
+        <div class="card">
+          <div class="ix">Practice · 02</div>
+          <h3>Process.</h3>
+          <p>Integrating processes end-to-end — so a change or an incident moves cleanly across every provider it touches.</p>
+        </div>
+        <div class="card">
+          <div class="ix">Practice · 03</div>
+          <h3>Measurement.</h3>
+          <p>Reporting on end-to-end service experience, not per-provider SLAs — fixing the "watermelon" effect.</p>
+        </div>
+        <div class="card">
+          <div class="ix">Practice · 04</div>
+          <h3>Technology.</h3>
+          <p>A tooling strategy that lets data and information flow across the ecosystem — one toolset, integrated, or aggregated.</p>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Integration is the unique part</div>
+    </div>
+  </section>
+
+  <!-- 26 DRIVERS -->
+  <section data-label="27 Drivers for adoption">
+    <div class="frame">
+      <div class="corner-label">Drivers</div>
+      <div class="corner-num">27 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">Why organizations adopt SIAM</div>
+      <h2 class="title" style="margin-top: 12px;">Five driver <em>groups.</em></h2>
+      <div class="grid-5">
+        <div class="driver">
+          <div class="n">01</div>
+          <h3>Service satisfaction.</h3>
+          <p>Closing the gap between green dashboards and unhappy customers.</p>
+        </div>
+        <div class="driver">
+          <div class="n">02</div>
+          <h3>Service &amp; sourcing landscape.</h3>
+          <p>Coping with multi-sourcing, growing provider counts, and shadow IT.</p>
+        </div>
+        <div class="driver">
+          <div class="n">03</div>
+          <h3>Operational efficiencies.</h3>
+          <p>Standardizing data, processes and tooling across providers.</p>
+        </div>
+        <div class="driver">
+          <div class="n">04</div>
+          <h3>External drivers.</h3>
+          <p>Corporate governance demands and external regulatory policy.</p>
+        </div>
+        <div class="driver">
+          <div class="n">05</div>
+          <h3>Commercial drivers.</h3>
+          <p>Making contracts, providers and integration economics actually work.</p>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Five reasons people start</div>
+    </div>
+  </section>
+
+  <!-- 27 BENEFITS -->
+  <section data-label="28 Benefits">
+    <div class="frame">
+      <div class="corner-label">Benefits</div>
+      <div class="corner-num">28 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">The payoff</div>
+      <h2 class="title" style="margin-top: 12px;">Four benefit <em>groups.</em></h2>
+      <div class="grid-4">
+        <div class="card">
+          <div class="ix">Benefit · 01</div>
+          <h3>Improved service quality.</h3>
+          <p>Services that are reliable end-to-end, not just inside each provider's contract boundary.</p>
+        </div>
+        <div class="card">
+          <div class="ix">Benefit · 02</div>
+          <h3>Optimized cost &amp; value.</h3>
+          <p>Better integration creates value — not just cheaper providers in the same fragmented model.</p>
+        </div>
+        <div class="card">
+          <div class="ix">Benefit · 03</div>
+          <h3>Better governance &amp; control.</h3>
+          <p>Clear accountability across the ecosystem. Outcomes visible at every level of governance.</p>
+        </div>
+        <div class="card">
+          <div class="ix">Benefit · 04</div>
+          <h3>Flexibility &amp; pace.</h3>
+          <p>Swap, scale or evolve providers without breaking the whole — the ecosystem absorbs change.</p>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Tangible and intangible value</div>
+    </div>
+  </section>
+
+  <!-- 28 CULTURAL CHANGE -->
+  <section data-label="29 Cultural change">
+    <div class="frame frame--mist">
+      <div class="corner-label">Culture</div>
+      <div class="corner-num">29 / 32</div>
+      <div class="hero-stack">
+        <div class="eyebrow">Cultural considerations</div>
+        <div class="hero-statement">
+          Effective SIAM requires control to be balanced with <b>trust</b>, <b>openness</b>, and <b>collaboration</b>. A transition to SIAM is not a technology project — it's a <em>behavioral one.</em>
+        </div>
+        <div class="chips">
+          <span class="chip">command &amp; control →</span>
+          <span class="chip green">collaboration</span>
+          <span class="chip">cooperation →</span>
+          <span class="chip green">shared accountability</span>
+          <span class="chip">contract →</span>
+          <span class="chip green">outcome</span>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">The hardest part of the whole thing</div>
+    </div>
+  </section>
+
+  <!-- 29 CHALLENGES -->
+  <section data-label="30 Challenges and risks">
+    <div class="frame">
+      <div class="corner-label">Honest list</div>
+      <div class="corner-num">30 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">Challenges &amp; risks</div>
+      <h2 class="title" style="margin-top: 12px;">SIAM is hard. <em>Do it deliberately.</em></h2>
+      <div class="grid-6">
+        <div class="card">
+          <div class="ix">Challenge · 01</div>
+          <h3>Building the business case.</h3>
+          <p>Quantifying value across a multi-provider ecosystem with intangible benefits.</p>
+        </div>
+        <div class="card">
+          <div class="ix">Challenge · 02</div>
+          <h3>Cultural change.</h3>
+          <p>Shifting from command-and-control to collaboration. Behavior change at scale.</p>
+        </div>
+        <div class="card">
+          <div class="ix">Challenge · 03</div>
+          <h3>Commercial alignment.</h3>
+          <p>Contracts, incentives and pricing models that actually reward integrated outcomes.</p>
+        </div>
+        <div class="card">
+          <div class="ix">Challenge · 04</div>
+          <h3>Measuring success.</h3>
+          <p>Building end-to-end performance reporting that spans multiple providers.</p>
+        </div>
+        <div class="card">
+          <div class="ix">Challenge · 05</div>
+          <h3>Tooling &amp; data.</h3>
+          <p>Integrating disparate toolsets so information flows cleanly across the ecosystem.</p>
+        </div>
+        <div class="card">
+          <div class="ix">Challenge · 06</div>
+          <h3>Governance discipline.</h3>
+          <p>Keeping boards, forums and working groups productive — not just calendar entries.</p>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Reasons to plan, not reasons to skip</div>
+    </div>
+  </section>
+
+  <!-- 30 RECAP -->
+  <section data-label="31 Recap">
+    <div class="frame">
+      <div class="corner-label">Recap</div>
+      <div class="corner-num">31 / 32</div>
+      <div class="eyebrow" style="margin-top: 16px;">In summary</div>
+      <h2 class="title" style="margin-top: 12px;">Five things to <em>take with you.</em></h2>
+      <div class="recap-grid">
+        <div class="recap-col">
+          <h3>Concepts</h3>
+          <div class="recap-item"><div class="n">01</div><div class="t"><em>SIAM</em> creates value in an ecosystem with multiple service providers, internal and external.</div></div>
+          <div class="recap-item"><div class="n">02</div><div class="t">The key concept is the <em>service integrator</em> — accountable end-to-end.</div></div>
+          <div class="recap-item"><div class="n">03</div><div class="t">Four structures: <em>internal, external, lead supplier,</em> and <em>hybrid.</em></div></div>
+        </div>
+        <div class="recap-col">
+          <h3>Getting there</h3>
+          <div class="recap-item"><div class="n">04</div><div class="t">A four-stage roadmap: <em>Discovery, Plan &amp; Build, Implement, Run &amp; Improve.</em></div></div>
+          <div class="recap-item"><div class="n">05</div><div class="t">Practices, drivers and benefits matter — but <em>culture</em> is the hardest part.</div></div>
+        </div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      <div class="footer-end">Ready to implement?</div>
+    </div>
+  </section>
+
+  <!-- 31 SIGN-OFF -->
+  <section data-label="32 Thank you">
+    <div class="frame frame--green">
+      <div class="corner-label">End of presentation</div>
+      <div class="corner-num">32 / 32</div>
+      <div class="signoff">
+        <div class="eyebrow">Closing</div>
+        <div class="signoff-big">Thank you<br/>for <em>watching.</em></div>
+        <div class="signoff-sub">Based on the SIAM Foundation Body of Knowledge (Scopism, 2025).</div>
+      </div>
+      <div class="footer-mark">
+        <span class="mark-mini"><svg viewBox="0 0 200 200" aria-hidden="true">
+  <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" stroke-width="9"/>
+  <polygon points="100,40 145,128 55,128" fill="#7AAB3A" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+  <rect x="89" y="120" width="22" height="42" fill="currentColor"/>
+</svg></span>
+        <span>In Silva · SIAM Foundation</span>
+      </div>
+      
+    </div>
+  </section>
+
+</deck-stage>
+
+<script src="deck-stage.js"></script>
+</body>
+</html>
