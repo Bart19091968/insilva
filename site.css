@@ -1,6 +1,6 @@
 /* ─────────────────────────────────────────────────────────
    In Silva Consulting · site styles
-   Shared across index.html, services.html, readers.html, about.html
+   Shared across index.html, services.html, lectures.html, about.html
    ───────────────────────────────────────────────────────── */
 
 :root {
@@ -80,7 +80,7 @@ img { max-width: 100%; height: auto; }
   color: var(--charcoal);
 }
 .nav__brand:hover { color: var(--charcoal); }
-.nav__mark { width: 38px; height: 38px; flex: none; color: var(--charcoal); }
+.nav__mark { width: 52px; height: 52px; flex: none; color: var(--charcoal); object-fit: contain; }
 .nav__name {
   font-size: 22px;
   font-weight: 900;
@@ -126,7 +126,7 @@ img { max-width: 100%; height: auto; }
   .nav__inner { padding: 14px var(--pad-x); gap: 16px; }
   .nav__menu { gap: 14px; }
   .nav__menu a { font-size: 11px; letter-spacing: 0.12em; padding: 4px 0; }
-  .nav__mark { width: 30px; height: 30px; }
+  .nav__mark { width: 42px; height: 42px; }
   .nav__brand { gap: 10px; }
   .nav__name { font-size: 15px; }
 }
@@ -184,7 +184,7 @@ img { max-width: 100%; height: auto; }
 
 .display {
   font-family: var(--sans);
-  font-size: clamp(40px, 6vw, 88px);
+  font-size: clamp(34px, 5vw, 72px);
   font-weight: 900;
   line-height: 0.98;
   letter-spacing: -0.03em;
@@ -221,7 +221,7 @@ img { max-width: 100%; height: auto; }
 .section--green .title em { color: var(--green-soft); }
 
 .lead {
-  font-size: clamp(20px, 1.6vw, 26px);
+  font-size: clamp(17px, 1.4vw, 22px);
   line-height: 1.5;
   color: var(--charcoal-2);
   max-width: 780px;
@@ -664,6 +664,7 @@ a.card { color: inherit; }
   border-radius: 999px;
 }
 .bio__portrait svg { width: 50%; height: 50%; color: var(--green-deep); opacity: 0.45; }
+.bio__portrait-img { width: 75%; height: auto; opacity: 0.95; }
 
 .bio__body { display: flex; flex-direction: column; gap: 22px; }
 .bio__body p { font-size: 18px; line-height: 1.65; color: var(--charcoal); max-width: 720px; }
@@ -766,7 +767,8 @@ a.card { color: inherit; }
 @media (max-width: 600px) { .footer__top { grid-template-columns: minmax(0, 1fr); gap: 32px; } }
 .footer__brand { display: flex; flex-direction: column; gap: 16px; }
 .footer__brand-mark { display: flex; align-items: center; gap: 14px; }
-.footer__brand-mark svg { width: 44px; height: 44px; color: var(--paper); }
+.footer__brand-mark svg,
+.footer__brand-img { width: 60px; height: 60px; color: var(--paper); object-fit: contain; }
 .footer__brand-name {
   font-size: 24px;
   font-weight: 900;

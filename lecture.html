@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Lecture — In Silva Consulting</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+  /* Lock the page to viewport; iframe fills remaining space */
+  html, body { height: 100%; overflow: hidden; }
+  body { display: flex; flex-direction: column; }
+
+  .reader-bar {
+    padding: 14px clamp(20px, 5vw, 80px);
+    border-bottom: 1px solid var(--paper-deep);
+    background: var(--paper);
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    flex: none;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 560px) {
+    .reader-bar {
+      padding: 12px 20px 14px;
+      gap: 10px;
+    }
+    .reader-bar__meta { width: 100%; }
+    .reader-bar__title { font-size: 15px; white-space: normal; line-height: 1.2; }
+    .reader-bar__actions {
+      width: 100%;
+      gap: 8px;
+    }
+    .reader-bar__actions button,
+    .reader-bar__actions a {
+      flex: 1;
+      justify-content: center;
+      padding: 9px 8px;
+      letter-spacing: 0.1em;
+      font-size: 11px;
+    }
+    .reader-notes {
+      padding: 18px 20px 22px;
+      max-height: 55vh;
+    }
+    .reader-notes__body { font-size: 15px; line-height: 1.55; }
+  }
+  .reader-bar__meta { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .reader-bar__crumb {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--charcoal-2);
+  }
+  .reader-bar__crumb a { color: var(--green-deep); }
+  .reader-bar__title {
+    font-size: 18px; font-weight: 900; color: var(--charcoal);
+    letter-spacing: -0.01em; line-height: 1.1;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .reader-bar__title em {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    color: var(--green-deep);
+  }
+  .reader-bar__actions { display: flex; gap: 10px; flex: none; }
+  .reader-bar__actions a,
+  .reader-bar__actions button {
+    display: inline-flex; align-items: center; gap: 6px;
+    font: inherit;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 9px 14px;
+    border: 1.5px solid var(--paper-deep); border-radius: 4px;
+    color: var(--charcoal); background: var(--white);
+    transition: all 0.18s;
+    cursor: pointer;
+  }
+  .reader-bar__actions a:hover,
+  .reader-bar__actions button:hover {
+    background: var(--charcoal); color: var(--paper); border-color: var(--charcoal);
+  }
+  .reader-bar__actions button[aria-expanded="true"] {
+    background: var(--green-deep); color: var(--paper); border-color: var(--green-deep);
+  }
+
+  .reader-stage {
+    flex: 1;
+    background: #1a1a1a;
+    position: relative;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .reader-stage iframe {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    border: 0; display: block;
+    background: #1a1a1a;
+  }
+
+  /* ── Speaker notes panel ─────────────────────────── */
+  .reader-notes {
+    flex: none;
+    background: var(--paper);
+    border-top: 3px solid var(--green);
+    padding: 22px clamp(24px, 5vw, 80px) 26px;
+    max-height: 38vh;
+    min-height: 140px;
+    overflow-y: auto;
+    transition: max-height 0.3s ease;
+  }
+  .reader-notes[hidden] { display: none; }
+  .reader-notes__head {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+    margin-bottom: 12px;
+  }
+  .reader-notes__label {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--green-deep);
+  }
+  .reader-notes__num {
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    color: var(--green-deep); font-size: 20px;
+    line-height: 1; flex: none;
+  }
+  .reader-notes__title {
+    font-size: 15px; font-weight: 700;
+    color: var(--charcoal-2);
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+  .reader-notes__body {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--charcoal);
+    max-width: 1080px;
+    margin: 0;
+    white-space: pre-wrap;
+  }
+  .reader-notes__empty {
+    font-style: italic; color: var(--charcoal-2);
+  }
+
+  /* When iframe missing, show a calm fallback */
+  .reader-missing {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    height: 100%; gap: 16px; color: var(--paper);
+    text-align: center; padding: 24px;
+  }
+  .reader-missing h3 { font-size: 32px; font-weight: 900; letter-spacing: -0.01em; }
+  .reader-missing p { color: var(--green-soft); max-width: 520px; }
+
+  /* Tighter nav on the reader page so the deck has max room */
+  .nav { border-bottom: 1px solid var(--paper-deep); }
+
+  @media (max-width: 600px) {
+    .reader-bar__title { font-size: 15px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ───────── NAV (same as the rest of the site) ───────── -->
+<nav class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="index.html">
+      <img class="nav__mark" src="logo-compass.png" alt="In Silva mark" />
+      <div class="nav__name">in <em>silva</em></div>
+    </a>
+    <div class="nav__menu">
+      <a href="services.html">Services</a>
+      <a href="lectures.html" class="is-active">Lectures</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ───────── READER BAR ───────── -->
+<div class="reader-bar">
+  <div class="reader-bar__meta">
+    <div class="reader-bar__crumb"><a href="lectures.html">Lectures</a> · <span id="rh-crumb">Loading…</span></div>
+    <div class="reader-bar__title" id="rh-title">&nbsp;</div>
+  </div>
+  <div class="reader-bar__actions">
+    <button type="button" id="rh-notes-toggle" aria-expanded="false" hidden>
+      <span aria-hidden="true">✎</span> <span id="rh-notes-toggle-label">Show notes</span>
+    </button>
+    <a id="rh-standalone" href="#" target="_blank" rel="noopener" title="Open the deck in a new tab">Open standalone <span aria-hidden="true">↗</span></a>
+  </div>
+</div>
+
+<!-- ───────── DECK STAGE ───────── -->
+<div class="reader-stage">
+  <iframe id="rf" title="Lecture" allowfullscreen></iframe>
+  <aside class="reader-notes" id="rn" hidden aria-label="Speaker notes for the current slide">
+    <div class="reader-notes__head">
+      <div class="reader-notes__label">Speaker notes</div>
+      <div class="reader-notes__num" id="rn-num">—</div>
+    </div>
+    <div class="reader-notes__title" id="rn-title"></div>
+    <p class="reader-notes__body" id="rn-body">Open a slide to see its note.</p>
+  </aside>
+  <noscript>
+    <div class="reader-missing">
+      <h3>JavaScript required.</h3>
+      <p>This lecture loads a slide deck dynamically. Use the <a href="lectures.html" style="color: var(--green-soft);">Lectures list</a> to open the deck directly.</p>
+    </div>
+  </noscript>
+</div>
+
+<script>
+  // ─── Lecture catalog ────────────────────────────────
+  // Add a new entry here to make a new deck embeddable.
+  const READERS = {
+    'siam-foundation': {
+      file:  'SIAM Foundation.html',
+      title: 'SIAM, <em>foundation.</em>',
+      crumb: 'SIAM, foundation.'
+    },
+    'itsm-explained': {
+      file:  'ITSM Explained.html',
+      title: 'ITSM, <em>explained.</em>',
+      crumb: 'ITSM, explained.'
+    }
+  };
+
+  const DEFAULT_ID = 'siam-foundation';
+  const params = new URLSearchParams(location.search);
+  const id = params.get('id') || DEFAULT_ID;
+  const reader = READERS[id];
+
+  const crumbEl = document.getElementById('rh-crumb');
+  const titleEl = document.getElementById('rh-title');
+  const linkEl  = document.getElementById('rh-standalone');
+  const iframe  = document.getElementById('rf');
+  const stage   = document.querySelector('.reader-stage');
+
+  if (!reader) {
+    document.title = 'Lecture not found — In Silva Consulting';
+    crumbEl.textContent = 'Not found';
+    titleEl.innerHTML = 'Lecture not found.';
+    iframe.remove();
+    stage.insertAdjacentHTML('beforeend', `
+      <div class="reader-missing">
+        <h3>That lecture isn't here.</h3>
+        <p>The lecture you requested doesn't exist. Try the <a href="lectures.html" style="color: var(--green-soft);">Lectures list</a> for available titles.</p>
+      </div>`);
+  } else {
+    document.title = reader.crumb + ' — In Silva Consulting';
+    crumbEl.textContent = reader.crumb;
+    titleEl.innerHTML = reader.title;
+    linkEl.href = reader.file;
+    iframe.src = reader.file;
+
+    // ─── Speaker notes ──────────────────────────────────
+    const notesPanel = document.getElementById('rn');
+    const notesBody  = document.getElementById('rn-body');
+    const notesNum   = document.getElementById('rn-num');
+    const notesTitle = document.getElementById('rn-title');
+    const toggleBtn  = document.getElementById('rh-notes-toggle');
+    const toggleLbl  = document.getElementById('rh-notes-toggle-label');
+    let notes = [];
+    let labels = [];
+    let currentIdx = 0;
+    let notesShown = false;
+
+    function renderNote() {
+      const total = notes.length;
+      if (!total) {
+        notesNum.textContent = '—';
+        notesTitle.textContent = '';
+        notesBody.textContent = 'No speaker notes available for this reader.';
+        notesBody.classList.add('reader-notes__empty');
+        return;
+      }
+      const idx = Math.max(0, Math.min(currentIdx, total - 1));
+      const text = (notes[idx] || '').trim();
+      const num = String(idx + 1).padStart(2, '0');
+      const totalStr = String(total).padStart(2, '0');
+      notesNum.textContent = `${num} / ${totalStr}`;
+      notesTitle.textContent = labels[idx] || '';
+      if (text) {
+        notesBody.textContent = text;
+        notesBody.classList.remove('reader-notes__empty');
+      } else {
+        notesBody.textContent = 'No note for this slide.';
+        notesBody.classList.add('reader-notes__empty');
+      }
+    }
+
+    function notesReady(received) {
+      notes  = Array.isArray(received.speakerNotes) ? received.speakerNotes : [];
+      labels = Array.isArray(received.deckLabels)   ? received.deckLabels   : [];
+      if (notes.length) {
+        toggleBtn.hidden = false;
+        renderNote();
+        // Restore the user's preference once notes are actually available
+        try {
+          if (localStorage.getItem('insilva-notes-shown') === '1' && !notesShown) {
+            setNotes(true);
+          }
+        } catch (_) {}
+      } else {
+        toggleBtn.hidden = true;
+      }
+    }
+
+    function setNotes(shown) {
+      notesShown = shown;
+      notesPanel.hidden = !shown;
+      toggleBtn.setAttribute('aria-expanded', shown ? 'true' : 'false');
+      toggleLbl.textContent = shown ? 'Hide notes' : 'Show notes';
+      try { localStorage.setItem('insilva-notes-shown', shown ? '1' : '0'); } catch (_) {}
+    }
+    toggleBtn.addEventListener('click', () => setNotes(!notesShown));
+
+    iframe.addEventListener('load', () => {
+      try { iframe.focus(); } catch (_) {}
+      // Primary path: read the embedded JSON via DOM (works over http://).
+      // Falls silently on file:// — the postMessage path below covers it.
+      try {
+        const doc = iframe.contentDocument;
+        const el = doc && doc.getElementById('speaker-notes');
+        if (el) {
+          const parsed = JSON.parse(el.textContent);
+          const lbls = Array.from(doc.querySelectorAll('deck-stage > section'))
+            .map(s => s.getAttribute('data-label') || '');
+          notesReady({ speakerNotes: parsed, deckLabels: lbls });
+        }
+      } catch (_) {
+        // file:// → wait for the deckNotesReady postMessage from deck-stage.js
+      }
+    });
+
+    // The deck posts `{deckNotesReady, speakerNotes, deckLabels}` once on init
+    // and `{slideIndexChanged: N}` on every slide change.
+    window.addEventListener('message', (ev) => {
+      if (ev.source !== iframe.contentWindow) return;
+      const d = ev.data;
+      if (!d || typeof d !== 'object') return;
+      if (d.deckNotesReady) {
+        notesReady(d);
+        return;
+      }
+      if (typeof d.slideIndexChanged === 'number') {
+        currentIdx = d.slideIndexChanged;
+        renderNote();
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
